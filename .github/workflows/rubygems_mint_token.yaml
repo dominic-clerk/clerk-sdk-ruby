@@ -24,6 +24,6 @@ jobs:
           if [ -z "$RUBYGEMS_OIDC" ]; then
             echo "var is empty"
           fi
-          echo "rubygems_token=$RUBYGEMS_OIDC" >> "$GITHUB_OUTPUT"
+          echo "rubygems_oidc=$RUBYGEMS_OIDC" >> "$GITHUB_OUTPUT"
     outputs:
-      rubygems_token: ${{ steps.output-token.outputs.rubygems_token }}
+      rubygems_token: ${{ steps.output-token.outputs.rubygems_oidc }}
