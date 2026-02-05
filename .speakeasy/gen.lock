@@ -5,13 +5,15 @@ management:
   docVersion: "2025-11-10"
   speakeasyVersion: 1.704.0
   generationVersion: 2.806.4
-  releaseVersion: 5.0.3
-  configChecksum: 9402fac13116b1e3d0e1b474bf8ef5c3
+  releaseVersion: 5.0.4
+  configChecksum: 9c67d60b818cabeedd23f802213ae395
+  repoURL: https://github.com/dominic-clerk/clerk-sdk-ruby.git
+  installationURL: https://github.com/dominic-clerk/clerk-sdk-ruby
   published: true
 persistentEdits:
-  generation_id: 6fcd7c80-199b-49c0-8cad-51567e0b6ded
-  pristine_commit_hash: dcf9a4405b04ffcf58e72f1d7a89b9891022f86d
-  pristine_tree_hash: a1cb9f2e79f4d0b87226056ba730899c920619c3
+  generation_id: d8bbf0c5-ca42-47b9-8955-37388568af44
+  pristine_commit_hash: 89f655ba28659c886f344aafff8d2a2de1102884
+  pristine_tree_hash: 2987289e1edc9d7aa776d8c777935ee3e96fa071
 features:
   ruby:
     additionalProperties: 0.1.0
@@ -44,8 +46,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:773bf4e765687e9f3c004e0d25695bf7b112261a
-    pristine_git_object: 2b6235e70dd01271fe938972fb44561fad1fd7a1
+    last_write_checksum: sha1:b7474cbe04e20007b2cff7fcdc192b2f8e1e25c0
+    pristine_git_object: e0fdd4ba53758a3003b70bc88c80544df0424114
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:3bb027e7620352086cf7ac562ce0c2a1473763bd
@@ -56,8 +58,8 @@ trackedFiles:
     pristine_git_object: 61c4a10d791d680282fcc819a44d358d04720050
   dctest-sdk-ruby.gemspec:
     id: 61e6d30fe51a
-    last_write_checksum: sha1:8d6d240e5422fec1719636a2612a3146efbe9c43
-    pristine_git_object: 3fa3b30fe5ac3acf8ffee6adcec22991fd4f220b
+    last_write_checksum: sha1:2e4622c6915958f95634a662b8dda31f31be03b4
+    pristine_git_object: dc0e682d42065089e49517d81a5a7cc7538a0eb0
   docs/models/components/actortoken.md:
     id: 6f567bd2f98e
     last_write_checksum: sha1:20b5bcc73de9dd30005ace61e79932376c978594
@@ -11276,8 +11278,8 @@ trackedFiles:
     pristine_git_object: a9439db9cbc91b3abef17baf0d438a99a9190cf0
   lib/clerk/sdkconfiguration.rb:
     id: 005b930c709e
-    last_write_checksum: sha1:ea598d331e1fac26cb8e6338794cc3a7e622a324
-    pristine_git_object: f97fd004e3c56fedf623a4ed373021f5ad3ce52f
+    last_write_checksum: sha1:fc3ed72c0f5aca93c9abcf9191f16219ba27e6a3
+    pristine_git_object: 321488dda4efb73b8d615c659a87909d067c1a0d
   lib/clerk/sdkconfiguration.rbi:
     id: c7163e8cf2ca
     last_write_checksum: sha1:fea1767a154b4575f107e7dda123f1cc89a1c581
