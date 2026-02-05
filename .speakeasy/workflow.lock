@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:692466885e04d72a1c2e5c376e400ab00bc5f9b6f8ca0db56680b913b99515d3
         tags:
             - latest
-            - speakeasy-sdk-regen-1770283353
+            - speakeasy-sdk-regen-1770285159
             - "2025-11-10"
 targets:
     clerk:
@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:ef0db9da1800d319e00747c9a98a416fccd89f059352f3c4d235addb7abcc2af
         sourceBlobDigest: sha256:692466885e04d72a1c2e5c376e400ab00bc5f9b6f8ca0db56680b913b99515d3
         codeSamplesNamespace: clerk-oas-ruby-code-samples
-        codeSamplesRevisionDigest: sha256:8ead5b640766eba51d3f4f618716ae4e378837ae4216bd49773ea4b24d3ad918
+        codeSamplesRevisionDigest: sha256:88ec4aee34aa503e910937fabf28b43bcaa6ebb7f8578a48dcfb05909d6648a7
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
