@@ -77,9 +77,9 @@ module Clerk
       end
       @language = 'ruby'
       @openapi_doc_version = '2025-11-10'
-      @sdk_version = '5.0.5'
+      @sdk_version = '5.0.6'
       @gen_version = '2.806.4'
-      @user_agent = 'speakeasy-sdk/ruby 5.0.5 2.806.4 2025-11-10 dctest-sdk-ruby'
+      @user_agent = 'speakeasy-sdk/ruby 5.0.6 2.806.4 2025-11-10 dctest-sdk-ruby'
     end
 
     
