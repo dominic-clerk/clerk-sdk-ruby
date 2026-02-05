@@ -19,6 +19,9 @@ jobs:
           trusted-publisher: true
       - name: Export token for Speakeasy
         id: output-token
-        run: echo "rubygems_token=$RUBYGEMS_API_KEY" >> "$GITHUB_OUTPUT"
+        run: |
+          printenv
+          RUBYGEMS_OIDC="$RUBYGEMS_API_KEY"
+          echo "rubygems_oidc=$RUBYGEMS_OIDC" >> "$GITHUB_OUTPUT"
     outputs:
       rubygems_token: ${{ steps.output-token.outputs.rubygems_token }}
