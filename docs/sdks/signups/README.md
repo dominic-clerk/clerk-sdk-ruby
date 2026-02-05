@@ -15,7 +15,7 @@ Retrieve the details of the sign-up with the given ID
 
 <!-- UsageSnippet language="ruby" operationID="GetSignUp" method="get" path="/sign_ups/{id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -55,17 +55,14 @@ Update the sign-up with the given ID
 
 <!-- UsageSnippet language="ruby" operationID="UpdateSignUp" method="patch" path="/sign_ups/{id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.sign_ups.update(id: 'signup_1234567890abcdef', body: Models::Operations::UpdateSignUpRequestBody.new(
-  external_id: 'ext_id_7890abcdef123456',
-  custom_action: false,
-))
+res = s.sign_ups.update(id: '<id>')
 
 unless res.sign_up.nil?
   # handle response

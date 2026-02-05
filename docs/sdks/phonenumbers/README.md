@@ -17,20 +17,14 @@ Create a new phone number
 
 <!-- UsageSnippet language="ruby" operationID="CreatePhoneNumber" method="post" path="/phone_numbers" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreatePhoneNumberRequest.new(
-  user_id: 'usr_12345',
-  phone_number: '+11234567890',
-  verified: true,
-  primary: false,
-  reserved_for_second_factor: false,
-)
+req = 
 
 res = s.phone_numbers.create(request: req)
 
@@ -65,14 +59,14 @@ Returns the details of a phone number
 
 <!-- UsageSnippet language="ruby" operationID="GetPhoneNumber" method="get" path="/phone_numbers/{phone_number_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.phone_numbers.get(phone_number_id: 'phone_12345')
+res = s.phone_numbers.get(phone_number_id: '<id>')
 
 unless res.phone_number.nil?
   # handle response
@@ -105,14 +99,14 @@ Delete the phone number with the given ID
 
 <!-- UsageSnippet language="ruby" operationID="DeletePhoneNumber" method="delete" path="/phone_numbers/{phone_number_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.phone_numbers.delete(phone_number_id: 'phone_12345')
+res = s.phone_numbers.delete(phone_number_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -145,18 +139,14 @@ Updates a phone number
 
 <!-- UsageSnippet language="ruby" operationID="UpdatePhoneNumber" method="patch" path="/phone_numbers/{phone_number_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.phone_numbers.update(phone_number_id: 'phone_12345', body: Models::Operations::UpdatePhoneNumberRequestBody.new(
-  verified: false,
-  primary: true,
-  reserved_for_second_factor: true,
-))
+res = s.phone_numbers.update(phone_number_id: '<id>')
 
 unless res.phone_number.nil?
   # handle response

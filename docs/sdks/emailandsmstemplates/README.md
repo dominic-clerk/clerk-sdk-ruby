@@ -19,22 +19,14 @@ Updates the existing template of the given type and slug
 
 <!-- UsageSnippet language="ruby" operationID="UpsertTemplate" method="put" path="/templates/{template_type}/{slug}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_and_sms_templates.upsert(template_type: Models::Operations::UpsertTemplateTemplateType::SMS, slug: 'verification-code', body: Models::Operations::UpsertTemplateRequestBody.new(
-  name: 'Verification Code',
-  subject: 'Your Verification Code',
-  markup: '<p>Your code: {{code}}</p>',
-  body: 'Use this code to verify your email: {{code}}',
-  delivered_by_clerk: true,
-  from_email_name: 'hello',
-  reply_to_email_name: 'support',
-))
+res = s.email_and_sms_templates.upsert(template_type: Models::Operations::UpsertTemplateTemplateType::EMAIL, slug: '<value>')
 
 unless res.template.nil?
   # handle response

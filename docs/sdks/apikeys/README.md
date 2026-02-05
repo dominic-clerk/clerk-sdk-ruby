@@ -23,7 +23,7 @@ Create an API Key
 
 <!-- UsageSnippet language="ruby" operationID="createApiKey" method="post" path="/api_keys" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -69,7 +69,7 @@ Get API Keys
 
 <!-- UsageSnippet language="ruby" operationID="getApiKeys" method="get" path="/api_keys" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -114,7 +114,7 @@ Get an API Key by ID
 
 <!-- UsageSnippet language="ruby" operationID="getApiKey" method="get" path="/api_keys/{apiKeyID}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -155,7 +155,7 @@ Update an API Key
 
 <!-- UsageSnippet language="ruby" operationID="updateApiKey" method="patch" path="/api_keys/{apiKeyID}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -197,7 +197,7 @@ Delete an API Key
 
 <!-- UsageSnippet language="ruby" operationID="deleteApiKey" method="delete" path="/api_keys/{apiKeyID}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -238,7 +238,7 @@ Get an API Key Secret
 
 <!-- UsageSnippet language="ruby" operationID="getApiKeySecret" method="get" path="/api_keys/{apiKeyID}/secret" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -279,7 +279,7 @@ Revoke an API Key
 
 <!-- UsageSnippet language="ruby" operationID="revokeApiKey" method="post" path="/api_keys/{apiKeyID}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -321,7 +321,7 @@ Verify an API Key
 
 <!-- UsageSnippet language="ruby" operationID="verifyApiKey" method="post" path="/api_keys/verify" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

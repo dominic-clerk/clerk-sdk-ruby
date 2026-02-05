@@ -24,7 +24,7 @@ returned first)
 
 <!-- UsageSnippet language="ruby" operationID="ListMachines" method="get" path="/machines" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -67,7 +67,7 @@ Creates a new machine.
 
 <!-- UsageSnippet language="ruby" operationID="CreateMachine" method="post" path="/machines" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -109,7 +109,7 @@ Returns the details of a machine.
 
 <!-- UsageSnippet language="ruby" operationID="GetMachine" method="get" path="/machines/{machine_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -150,7 +150,7 @@ Only the provided fields will be updated.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateMachine" method="patch" path="/machines/{machine_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -191,7 +191,7 @@ Deletes a machine.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteMachine" method="delete" path="/machines/{machine_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -231,7 +231,7 @@ Returns the secret key for a machine.
 
 <!-- UsageSnippet language="ruby" operationID="GetMachineSecretKey" method="get" path="/machines/{machine_id}/secret_key" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -273,7 +273,7 @@ The previous secret key will remain valid for the duration specified by the prev
 
 <!-- UsageSnippet language="ruby" operationID="RotateMachineSecretKey" method="post" path="/machines/{machine_id}/secret_key/rotate" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -317,7 +317,7 @@ Maximum of 150 scopes per machine.
 
 <!-- UsageSnippet language="ruby" operationID="CreateMachineScope" method="post" path="/machines/{machine_id}/scopes" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -358,7 +358,7 @@ Deletes a machine scope, removing access from one machine to another.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteMachineScope" method="delete" path="/machines/{machine_id}/scopes/{other_machine_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

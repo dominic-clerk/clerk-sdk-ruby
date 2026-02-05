@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 require 'clerk/configuration'
 require 'clerk/constants'

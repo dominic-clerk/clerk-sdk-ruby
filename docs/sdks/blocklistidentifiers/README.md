@@ -16,7 +16,7 @@ Get a list of all identifiers which are not allowed to access an instance
 
 <!-- UsageSnippet language="ruby" operationID="ListBlocklistIdentifiers" method="get" path="/blocklist_identifiers" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -50,16 +50,14 @@ Create an identifier that is blocked from accessing an instance
 
 <!-- UsageSnippet language="ruby" operationID="CreateBlocklistIdentifier" method="post" path="/blocklist_identifiers" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateBlocklistIdentifierRequest.new(
-  identifier: 'example@example.com',
-)
+req = 
 
 res = s.blocklist_identifiers.create(request: req)
 
@@ -94,14 +92,14 @@ Delete an identifier from the instance block-list
 
 <!-- UsageSnippet language="ruby" operationID="DeleteBlocklistIdentifier" method="delete" path="/blocklist_identifiers/{identifier_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.blocklist_identifiers.delete(identifier_id: 'identifier123')
+res = s.blocklist_identifiers.delete(identifier_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response

@@ -38,7 +38,7 @@ gem 'thruster', require: false
 # gem "rack-cors"
 
 path '../..' do
-  gem 'clerk-sdk-ruby', require: 'clerk'
+  gem 'dctest-sdk-ruby', require: 'clerk'
 end
 
 

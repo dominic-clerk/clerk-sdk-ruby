@@ -17,7 +17,7 @@ Creates a new M2M Token. Must be authenticated via a Machine Secret Key.
 
 <!-- UsageSnippet language="ruby" operationID="createM2MToken" method="post" path="/m2m_tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -65,7 +65,7 @@ This endpoint can be authenticated by either a Machine Secret Key or by a Clerk 
 
 <!-- UsageSnippet language="ruby" operationID="getM2MTokens" method="get" path="/m2m_tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -116,7 +116,7 @@ This endpoint can be authenticated by either a Machine Secret Key or by a Clerk 
 
 <!-- UsageSnippet language="ruby" operationID="revokeM2MToken" method="post" path="/m2m_tokens/{m2m_token_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -163,7 +163,7 @@ This endpoint can be authenticated by either a Machine Secret Key or by a Clerk 
 
 <!-- UsageSnippet language="ruby" operationID="verifyM2MToken" method="post" path="/m2m_tokens/verify" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

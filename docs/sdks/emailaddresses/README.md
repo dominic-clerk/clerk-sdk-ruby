@@ -17,19 +17,14 @@ Create a new email address
 
 <!-- UsageSnippet language="ruby" operationID="CreateEmailAddress" method="post" path="/email_addresses" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateEmailAddressRequest.new(
-  user_id: 'user_12345',
-  email_address: 'example@clerk.com',
-  verified: false,
-  primary: true,
-)
+req = 
 
 res = s.email_addresses.create(request: req)
 
@@ -64,14 +59,14 @@ Returns the details of an email address.
 
 <!-- UsageSnippet language="ruby" operationID="GetEmailAddress" method="get" path="/email_addresses/{email_address_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_addresses.get(email_address_id: 'email_address_id_example')
+res = s.email_addresses.get(email_address_id: '<id>')
 
 unless res.email_address.nil?
   # handle response
@@ -104,14 +99,14 @@ Delete the email address with the given ID
 
 <!-- UsageSnippet language="ruby" operationID="DeleteEmailAddress" method="delete" path="/email_addresses/{email_address_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_addresses.delete(email_address_id: 'email_address_id_example')
+res = s.email_addresses.delete(email_address_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -144,17 +139,14 @@ Updates an email address.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateEmailAddress" method="patch" path="/email_addresses/{email_address_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_addresses.update(email_address_id: 'email_address_id_example', body: Models::Operations::UpdateEmailAddressRequestBody.new(
-  verified: false,
-  primary: true,
-))
+res = s.email_addresses.update(email_address_id: '<id>')
 
 unless res.email_address.nil?
   # handle response

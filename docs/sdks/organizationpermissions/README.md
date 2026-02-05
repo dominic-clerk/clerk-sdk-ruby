@@ -18,7 +18,7 @@ Retrieves all organization permissions for the given instance.
 
 <!-- UsageSnippet language="ruby" operationID="ListOrganizationPermissions" method="get" path="/organization_permissions" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -61,7 +61,7 @@ Creates a new organization permission for the given instance.
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganizationPermission" method="post" path="/organization_permissions" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -106,7 +106,7 @@ Retrieves the details of an organization permission.
 
 <!-- UsageSnippet language="ruby" operationID="GetOrganizationPermission" method="get" path="/organization_permissions/{permission_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -147,7 +147,7 @@ System permissions cannot be updated.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateOrganizationPermission" method="patch" path="/organization_permissions/{permission_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -189,7 +189,7 @@ System permissions cannot be deleted.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOrganizationPermission" method="delete" path="/organization_permissions/{permission_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

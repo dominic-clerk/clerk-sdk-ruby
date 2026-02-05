@@ -17,7 +17,7 @@ Lists all whitelisted redirect_urls for the instance
 
 <!-- UsageSnippet language="ruby" operationID="ListRedirectURLs" method="get" path="/redirect_urls" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -58,16 +58,14 @@ Create a redirect URL
 
 <!-- UsageSnippet language="ruby" operationID="CreateRedirectURL" method="post" path="/redirect_urls" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateRedirectURLRequest.new(
-  url: 'https://my-app.com/oauth-callback',
-)
+req = 
 
 res = s.redirect_urls.create(request: req)
 
@@ -102,14 +100,14 @@ Retrieve the details of the redirect URL with the given ID
 
 <!-- UsageSnippet language="ruby" operationID="GetRedirectURL" method="get" path="/redirect_urls/{id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.redirect_urls.get(id: 'redir_01FG4K9G5NWSQ4ZPT4TQE4Z7G3')
+res = s.redirect_urls.get(id: '<id>')
 
 unless res.redirect_url.nil?
   # handle response
@@ -142,14 +140,14 @@ Remove the selected redirect URL from the whitelist of the instance
 
 <!-- UsageSnippet language="ruby" operationID="DeleteRedirectURL" method="delete" path="/redirect_urls/{id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.redirect_urls.delete(id: 'redir_01FG4K9G5NWSQ4ZPT4TQE4Z7G3')
+res = s.redirect_urls.delete(id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response

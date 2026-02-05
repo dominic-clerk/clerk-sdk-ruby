@@ -18,7 +18,7 @@ List all templates
 
 <!-- UsageSnippet language="ruby" operationID="ListJWTTemplates" method="get" path="/jwt_templates" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -59,22 +59,14 @@ Create a new JWT template
 
 <!-- UsageSnippet language="ruby" operationID="CreateJWTTemplate" method="post" path="/jwt_templates" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateJWTTemplateRequest.new(
-  name: 'Example Template',
-  claims: Models::Operations::CreateJWTTemplateClaims.new(),
-  lifetime: 3600,
-  allowed_clock_skew: 5,
-  custom_signing_key: false,
-  signing_algorithm: 'RS256',
-  signing_key: 'PRIVATE_KEY_PLACEHOLDER',
-)
+req = 
 
 res = s.jwt_templates.create(request: req)
 
@@ -109,14 +101,14 @@ Retrieve the details of a given JWT template
 
 <!-- UsageSnippet language="ruby" operationID="GetJWTTemplate" method="get" path="/jwt_templates/{template_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.jwt_templates.get(template_id: 'template_123')
+res = s.jwt_templates.get(template_id: '<id>')
 
 unless res.jwt_template.nil?
   # handle response
@@ -149,7 +141,7 @@ Updates an existing JWT template
 
 <!-- UsageSnippet language="ruby" operationID="UpdateJWTTemplate" method="patch" path="/jwt_templates/{template_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -190,7 +182,7 @@ Delete a Template
 
 <!-- UsageSnippet language="ruby" operationID="DeleteJWTTemplate" method="delete" path="/jwt_templates/{template_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

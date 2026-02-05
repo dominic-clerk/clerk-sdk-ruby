@@ -18,7 +18,7 @@ The response will contain the primary domain for the instance and any satellite 
 
 <!-- UsageSnippet language="ruby" operationID="ListDomains" method="get" path="/domains" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -55,18 +55,14 @@ If you're planning to configure the new satellite domain to run behind a proxy, 
 
 <!-- UsageSnippet language="ruby" operationID="AddDomain" method="post" path="/domains" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::AddDomainRequest.new(
-  name: 'example.com',
-  is_satellite: true,
-  proxy_url: 'https://proxy.example.com',
-)
+req = 
 
 res = s.domains.add(request: req)
 
@@ -102,14 +98,14 @@ It is currently not possible to delete the instance's primary domain.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteDomain" method="delete" path="/domains/{domain_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.domains.delete(domain_id: 'domain_12345')
+res = s.domains.delete(domain_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -149,14 +145,14 @@ update the instance's home origin, affecting the default application paths.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateDomain" method="patch" path="/domains/{domain_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.domains.update(domain_id: 'domain_12345', body: Models::Operations::UpdateDomainRequestBody.new())
+res = s.domains.update(domain_id: '<id>', body: Models::Operations::UpdateDomainRequestBody.new())
 
 unless res.domain.nil?
   # handle response

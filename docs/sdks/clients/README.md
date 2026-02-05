@@ -20,7 +20,7 @@ Warning: the endpoint is being deprecated and will be removed in future versions
 
 <!-- UsageSnippet language="ruby" operationID="GetClientList" method="get" path="/clients" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -62,16 +62,14 @@ Verifies the client in the provided token
 
 <!-- UsageSnippet language="ruby" operationID="VerifyClient" method="post" path="/clients/verify" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::VerifyClientRequest.new(
-  token: 'jwt_token_example',
-)
+req = 
 
 res = s.clients.verify(request: req)
 
@@ -106,14 +104,14 @@ Returns the details of a client.
 
 <!-- UsageSnippet language="ruby" operationID="GetClient" method="get" path="/clients/{client_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.clients.get(client_id: 'cli_123456789')
+res = s.clients.get(client_id: '<id>')
 
 unless res.client.nil?
   # handle response

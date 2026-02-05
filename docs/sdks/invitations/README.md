@@ -19,20 +19,14 @@ Also, trying to create an invitation for an email address that already exists in
 
 <!-- UsageSnippet language="ruby" operationID="CreateInvitation" method="post" path="/invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateInvitationRequest.new(
-  email_address: 'user@example.com',
-  public_metadata: {
-
-  },
-  redirect_url: 'https://example.com/welcome',
-)
+req = 
 
 res = s.invitations.create(request: req)
 
@@ -67,7 +61,7 @@ Returns all non-revoked invitations for your application, sorted by creation dat
 
 <!-- UsageSnippet language="ruby" operationID="ListInvitations" method="get" path="/invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -113,7 +107,7 @@ This endpoint is limited to a maximum of 10 invitations per API call. If you nee
 
 <!-- UsageSnippet language="ruby" operationID="CreateBulkInvitations" method="post" path="/invitations/bulk" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -158,14 +152,14 @@ Only active (i.e. non-revoked) invitations can be revoked.
 
 <!-- UsageSnippet language="ruby" operationID="RevokeInvitation" method="post" path="/invitations/{invitation_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.invitations.revoke(invitation_id: 'inv_123')
+res = s.invitations.revoke(invitation_id: '<id>')
 
 unless res.invitation_revoked.nil?
   # handle response

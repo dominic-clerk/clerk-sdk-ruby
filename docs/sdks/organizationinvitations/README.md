@@ -25,7 +25,7 @@ The organization invitations are ordered by descending creation date by default.
 
 <!-- UsageSnippet language="ruby" operationID="ListInstanceOrganizationInvitations" method="get" path="/organization_invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -83,25 +83,14 @@ When the organization invitation is accepted, the metadata will be transferred t
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganizationInvitation" method="post" path="/organizations/{organization_id}/invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organization_invitations.create(organization_id: 'org_12345', body: Models::Operations::CreateOrganizationInvitationRequestBody.new(
-  email_address: 'user@example.com',
-  inviter_user_id: 'user_67890',
-  role: 'admin',
-  public_metadata: {
-    "key": 'value',
-  },
-  private_metadata: {
-    "private_key": 'secret_value',
-  },
-  redirect_url: 'https://example.com/welcome',
-))
+res = s.organization_invitations.create(organization_id: '<id>')
 
 unless res.organization_invitation.nil?
   # handle response
@@ -140,7 +129,7 @@ Any invitations created as a result of an Organization Domain are not included i
 
 <!-- UsageSnippet language="ruby" operationID="ListOrganizationInvitations" method="get" path="/organizations/{organization_id}/invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -148,7 +137,7 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::ListOrganizationInvitationsRequest.new(
-  organization_id: 'org_12345',
+  organization_id: '<id>',
 )
 
 res = s.organization_invitations.list(request: req)
@@ -199,25 +188,17 @@ When the organization invitation is accepted, the metadata will be transferred t
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganizationInvitationBulk" method="post" path="/organizations/{organization_id}/invitations/bulk" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organization_invitations.bulk_create(organization_id: 'org_12345', body: [
+res = s.organization_invitations.bulk_create(organization_id: '<id>', body: [
   Models::Operations::CreateOrganizationInvitationBulkRequestBody.new(
-    email_address: 'newmember@example.com',
-    inviter_user_id: 'user_67890',
-    role: 'admin',
-    public_metadata: {
-
-    },
-    private_metadata: {
-
-    },
-    redirect_url: 'https://example.com/welcome',
+    email_address: 'Jeffrey.Skiles27@hotmail.com',
+    role: '<value>',
   ),
 ])
 
@@ -260,14 +241,14 @@ Any invitations created as a result of an Organization Domain are not included i
 
 <!-- UsageSnippet language="ruby" operationID="ListPendingOrganizationInvitations" method="get" path="/organizations/{organization_id}/invitations/pending" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organization_invitations.list_pending(organization_id: 'org_12345', limit: 10, offset: 0)
+res = s.organization_invitations.list_pending(organization_id: '<id>', limit: 10, offset: 0)
 
 unless res.organization_invitations.nil?
   # handle response
@@ -302,14 +283,14 @@ Use this request to get an existing organization invitation by ID.
 
 <!-- UsageSnippet language="ruby" operationID="GetOrganizationInvitation" method="get" path="/organizations/{organization_id}/invitations/{invitation_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organization_invitations.get(organization_id: 'org_123456789', invitation_id: 'inv_987654321')
+res = s.organization_invitations.get(organization_id: '<id>', invitation_id: '<id>')
 
 unless res.organization_invitation.nil?
   # handle response
@@ -347,16 +328,14 @@ Only users with "admin" role can revoke invitations.
 
 <!-- UsageSnippet language="ruby" operationID="RevokeOrganizationInvitation" method="post" path="/organizations/{organization_id}/invitations/{invitation_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organization_invitations.revoke(organization_id: 'org_123456', invitation_id: 'inv_123456', body: Models::Operations::RevokeOrganizationInvitationRequestBody.new(
-  requesting_user_id: 'usr_12345',
-))
+res = s.organization_invitations.revoke(organization_id: '<id>', invitation_id: '<id>')
 
 unless res.organization_invitation.nil?
   # handle response

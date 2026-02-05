@@ -23,18 +23,14 @@ moving forward at least one of `client_id` or `user_id` parameters should be pro
 
 <!-- UsageSnippet language="ruby" operationID="GetSessionList" method="get" path="/sessions" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::GetSessionListRequest.new(
-  client_id: 'client_123',
-  user_id: 'user_456',
-  status: Models::Operations::GetSessionListStatus::ACTIVE,
-)
+req = Models::Operations::GetSessionListRequest.new()
 
 res = s.sessions.list(request: req)
 
@@ -72,7 +68,7 @@ we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend
 
 <!-- UsageSnippet language="ruby" operationID="createSession" method="post" path="/sessions" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -114,14 +110,14 @@ Retrieve the details of a session
 
 <!-- UsageSnippet language="ruby" operationID="GetSession" method="get" path="/sessions/{session_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.sessions.get(session_id: 'sess_1234567890abcdef')
+res = s.sessions.get(session_id: '<id>')
 
 unless res.session.nil?
   # handle response
@@ -155,7 +151,7 @@ are validation errors, which signals the SDKs to fall back to the handshake flow
 
 <!-- UsageSnippet language="ruby" operationID="RefreshSession" method="post" path="/sessions/{session_id}/refresh" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -197,14 +193,14 @@ In multi-session mode, a revoked session will still be returned along with its c
 
 <!-- UsageSnippet language="ruby" operationID="RevokeSession" method="post" path="/sessions/{session_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.sessions.revoke(session_id: 'sess_1234567890abcdef')
+res = s.sessions.revoke(session_id: '<id>')
 
 unless res.session.nil?
   # handle response
@@ -237,7 +233,7 @@ Creates a session JSON Web Token (JWT) based on a session.
 
 <!-- UsageSnippet language="ruby" operationID="CreateSessionToken" method="post" path="/sessions/{session_id}/tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -278,14 +274,14 @@ Creates a JSON Web Token (JWT) based on a session and a JWT Template name define
 
 <!-- UsageSnippet language="ruby" operationID="CreateSessionTokenFromTemplate" method="post" path="/sessions/{session_id}/tokens/{template_name}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.sessions.create_token_from_template(session_id: 'ses_123abcd4567', template_name: 'custom_hasura')
+res = s.sessions.create_token_from_template(session_id: '<id>', template_name: '<value>')
 
 unless res.object.nil?
   # handle response

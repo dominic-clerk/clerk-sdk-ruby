@@ -23,7 +23,7 @@ Most recent roles will be returned first.
 
 <!-- UsageSnippet language="ruby" operationID="ListOrganizationRoles" method="get" path="/organization_roles" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -69,7 +69,7 @@ Organization roles support permissions that can be assigned to control access wi
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganizationRole" method="post" path="/organization_roles" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -114,7 +114,7 @@ Use this request to retrieve an existing organization role by its ID.
 
 <!-- UsageSnippet language="ruby" operationID="GetOrganizationRole" method="get" path="/organization_roles/{organization_role_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -157,7 +157,7 @@ If the role is used as a creator role or domain default role, updating the key w
 
 <!-- UsageSnippet language="ruby" operationID="UpdateOrganizationRole" method="patch" path="/organization_roles/{organization_role_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -199,7 +199,7 @@ The role cannot be deleted if it is currently used as the default creator role, 
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOrganizationRole" method="delete" path="/organization_roles/{organization_role_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -239,7 +239,7 @@ Assigns a permission to an organization role
 
 <!-- UsageSnippet language="ruby" operationID="AssignPermissionToOrganizationRole" method="post" path="/organization_roles/{organization_role_id}/permissions/{permission_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -280,7 +280,7 @@ Removes a permission from an organization role
 
 <!-- UsageSnippet language="ruby" operationID="RemovePermissionFromOrganizationRole" method="delete" path="/organization_roles/{organization_role_id}/permissions/{permission_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

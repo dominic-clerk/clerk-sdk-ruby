@@ -23,7 +23,7 @@ The templates are returned sorted by position.
 
 <!-- UsageSnippet language="ruby" operationID="GetTemplateList" method="get" path="/templates/{template_type}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -68,14 +68,14 @@ Returns the details of a template
 
 <!-- UsageSnippet language="ruby" operationID="GetTemplate" method="get" path="/templates/{template_type}/{slug}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_sms_templates.get(template_type: Models::Operations::GetTemplateTemplateType::EMAIL, slug: 'welcome-email')
+res = s.email_sms_templates.get(template_type: Models::Operations::GetTemplateTemplateType::SMS, slug: '<value>')
 
 unless res.template.nil?
   # handle response
@@ -111,14 +111,14 @@ Reverts an updated template to its default state
 
 <!-- UsageSnippet language="ruby" operationID="RevertTemplate" method="post" path="/templates/{template_type}/{slug}/revert" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_sms_templates.revert(template_type: Models::Operations::RevertTemplateTemplateType::EMAIL, slug: 'welcome-email')
+res = s.email_sms_templates.revert(template_type: Models::Operations::RevertTemplateTemplateType::EMAIL, slug: '<value>')
 
 unless res.template.nil?
   # handle response
@@ -156,16 +156,14 @@ The app developer will need to listen to the `email.created` or `sms.created` we
 
 <!-- UsageSnippet language="ruby" operationID="ToggleTemplateDelivery" method="post" path="/templates/{template_type}/{slug}/toggle_delivery" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.email_sms_templates.toggle_template_delivery(template_type: Models::Operations::ToggleTemplateDeliveryTemplateType::EMAIL, slug: 'welcome-email', body: Models::Operations::ToggleTemplateDeliveryRequestBody.new(
-  delivered_by_clerk: true,
-))
+res = s.email_sms_templates.toggle_template_delivery(template_type: Models::Operations::ToggleTemplateDeliveryTemplateType::SMS, slug: '<value>')
 
 unless res.template.nil?
   # handle response

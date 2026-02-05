@@ -20,7 +20,7 @@ The SAML Connections are ordered by descending creation date and the most recent
 
 <!-- UsageSnippet language="ruby" operationID="ListSAMLConnections" method="get" path="/saml_connections" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -62,32 +62,14 @@ Create a new SAML Connection.
 
 <!-- UsageSnippet language="ruby" operationID="CreateSAMLConnection" method="post" path="/saml_connections" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateSAMLConnectionRequestBody2.new(
-  name: 'My SAML Connection',
-  domains: [
-    '<value 1>',
-    '<value 2>',
-  ],
-  provider: Models::Operations::Provider2::SAML_CUSTOM,
-  idp_entity_id: 'http://idp.example.org/',
-  idp_sso_url: 'http://idp.example.org/sso',
-  idp_certificate: 'MIIDdzCCAl+gAwIBAgIJAKcyBaiiz+DT...',
-  idp_metadata_url: 'http://idp.example.org/metadata.xml',
-  idp_metadata: '<EntityDescriptor ...',
-  attribute_mapping: Models::Operations::CreateSAMLConnectionAttributeMapping2.new(
-    user_id: 'nameid',
-    email_address: 'mail',
-    first_name: 'givenName',
-    last_name: 'surname',
-  ),
-)
+req = 
 
 res = s.saml_connections.create(request: req)
 
@@ -122,14 +104,14 @@ Fetches the SAML Connection whose ID matches the provided `saml_connection_id` i
 
 <!-- UsageSnippet language="ruby" operationID="GetSAMLConnection" method="get" path="/saml_connections/{saml_connection_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.saml_connections.get(saml_connection_id: 'saml_conn_123')
+res = s.saml_connections.get(saml_connection_id: '<id>')
 
 unless res.schemas_saml_connection.nil?
   # handle response
@@ -162,14 +144,14 @@ Updates the SAML Connection whose ID matches the provided `id` in the path.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateSAMLConnection" method="patch" path="/saml_connections/{saml_connection_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.saml_connections.update(saml_connection_id: 'saml_conn_123_update', body: Models::Operations::UpdateSAMLConnectionRequestBody.new())
+res = s.saml_connections.update(saml_connection_id: '<id>', body: Models::Operations::UpdateSAMLConnectionRequestBody.new())
 
 unless res.schemas_saml_connection.nil?
   # handle response
@@ -203,14 +185,14 @@ Deletes the SAML Connection whose ID matches the provided `id` in the path.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteSAMLConnection" method="delete" path="/saml_connections/{saml_connection_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.saml_connections.delete(saml_connection_id: 'saml_conn_123_delete')
+res = s.saml_connections.delete(saml_connection_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response

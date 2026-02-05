@@ -21,17 +21,14 @@ a different proxy URL than the one provided. It can also be used to re-validate 
 
 <!-- UsageSnippet language="ruby" operationID="VerifyDomainProxy" method="post" path="/proxy_checks" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::VerifyDomainProxyRequest.new(
-  domain_id: 'domain_32hfu3e',
-  proxy_url: 'https://example.com/__clerk',
-)
+req = 
 
 res = s.proxy_checks.verify(request: req)
 

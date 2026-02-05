@@ -22,7 +22,7 @@ Fetches the current instance
 
 <!-- UsageSnippet language="ruby" operationID="GetInstance" method="get" path="/instance" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -55,26 +55,14 @@ Updates the settings of an instance
 
 <!-- UsageSnippet language="ruby" operationID="UpdateInstance" method="patch" path="/instance" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::UpdateInstanceRequest.new(
-  test_mode: true,
-  hibp: false,
-  support_email: 'support@example.com',
-  clerk_js_version: '2.3.1',
-  development_origin: 'http://localhost:3000',
-  allowed_origins: [
-    'http://localhost:3000',
-    'chrome-extension://extension_uiid',
-    'capacitor://localhost',
-  ],
-  url_based_session_syncing: true,
-)
+req = 
 
 res = s.instance_settings.update(request: req)
 
@@ -109,19 +97,14 @@ Updates the restriction settings of an instance
 
 <!-- UsageSnippet language="ruby" operationID="UpdateInstanceRestrictions" method="patch" path="/instance/restrictions" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::UpdateInstanceRestrictionsRequest.new(
-  allowlist: false,
-  blocklist: true,
-  block_email_subaddresses: true,
-  block_disposable_email_domains: true,
-)
+req = 
 
 res = s.instance_settings.update_restrictions(request: req)
 
@@ -160,16 +143,14 @@ WARNING: Changing your domain will invalidate all current user sessions (i.e. us
 
 <!-- UsageSnippet language="ruby" operationID="ChangeProductionInstanceDomain" method="post" path="/instance/change_domain" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::ChangeProductionInstanceDomainRequest.new(
-  home_url: 'https://www.newdomain.com',
-)
+req = 
 
 res = s.instance_settings.change_domain(request: req)
 
@@ -204,25 +185,14 @@ Updates the organization settings of the instance
 
 <!-- UsageSnippet language="ruby" operationID="UpdateInstanceOrganizationSettings" method="patch" path="/instance/organization_settings" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::UpdateInstanceOrganizationSettingsRequest.new(
-  enabled: true,
-  max_allowed_memberships: 10,
-  admin_delete_enabled: false,
-  domains_enabled: true,
-  domains_enrollment_modes: [
-    'automatic_invitation',
-    'automatic_suggestion',
-  ],
-  creator_role_id: 'creator_role',
-  domains_default_role_id: 'member_role',
-)
+req = 
 
 res = s.instance_settings.update_organization_settings(request: req)
 
@@ -257,7 +227,7 @@ Get instance protect settings
 
 <!-- UsageSnippet language="ruby" operationID="GetInstanceProtect" method="get" path="/instance/protect" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -290,7 +260,7 @@ Update instance protect settings
 
 <!-- UsageSnippet language="ruby" operationID="UpdateInstanceProtect" method="patch" path="/instance/protect" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

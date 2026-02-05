@@ -44,7 +44,7 @@ The users are returned sorted by creation date, with the newest users appearing 
 
 <!-- UsageSnippet language="ruby" operationID="GetUserList" method="get" path="/users" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -52,33 +52,13 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::GetUserListRequest.new(
-  email_address: [
-    'test@example.com',
-  ],
-  phone_number: [
-    '+12345678901',
-  ],
-  external_id: [
-    'external-id-123',
-  ],
-  username: [
-    'user123',
-  ],
-  web3_wallet: [
-    '0x123456789abcdef0x123456789abcdef',
-  ],
-  user_id: [
-    'user-id-123',
-  ],
-  organization_id: [
-    'org-id-123',
-  ],
-  query: 'John',
   last_active_at_before: 1_700_690_400_000,
   last_active_at_after: 1_700_690_400_000,
   last_active_at_since: 1_700_690_400_000,
   created_at_before: 1_730_160_000_000,
   created_at_after: 1_730_160_000_000,
+  last_sign_in_at_before: 1_700_690_400_000,
+  last_sign_in_at_after: 1_700_690_400_000,
 )
 
 res = s.users.list(request: req)
@@ -120,7 +100,7 @@ The following rate limit rules apply to this endpoint: 1000 requests per 10 seco
 
 <!-- UsageSnippet language="ruby" operationID="CreateUser" method="post" path="/users" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -162,7 +142,7 @@ Returns a total count of all users that match the given filtering criteria.
 
 <!-- UsageSnippet language="ruby" operationID="GetUsersCount" method="get" path="/users/count" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -170,32 +150,13 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::GetUsersCountRequest.new(
-  email_address: [
-    'user@example.com',
-  ],
-  phone_number: [
-    '+1234567890',
-  ],
-  external_id: [
-    'external-id-123',
-  ],
-  username: [
-    'username123',
-  ],
-  web3_wallet: [
-    '0x123456789abcdef',
-  ],
-  user_id: [
-    'user-id-123',
-  ],
-  organization_id: [
-    'John Doe',
-  ],
   last_active_at_before: 1_700_690_400_000,
   last_active_at_after: 1_700_690_400_000,
   last_active_at_since: 1_700_690_400_000,
   created_at_before: 1_730_160_000_000,
   created_at_after: 1_730_160_000_000,
+  last_sign_in_at_before: 1_700_690_400_000,
+  last_sign_in_at_after: 1_700_690_400_000,
 )
 
 res = s.users.count(request: req)
@@ -231,14 +192,14 @@ Retrieve the details of a user
 
 <!-- UsageSnippet language="ruby" operationID="GetUser" method="get" path="/users/{user_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.get(user_id: 'usr_1')
+res = s.users.get(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -282,14 +243,14 @@ You can also choose to sign the user out of all their active sessions on any dev
 
 <!-- UsageSnippet language="ruby" operationID="UpdateUser" method="patch" path="/users/{user_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.update(user_id: 'usr_1', body: Models::Operations::UpdateUserRequestBody.new())
+res = s.users.update(user_id: '<id>', body: Models::Operations::UpdateUserRequestBody.new())
 
 unless res.user.nil?
   # handle response
@@ -323,14 +284,14 @@ Delete the specified user
 
 <!-- UsageSnippet language="ruby" operationID="DeleteUser" method="delete" path="/users/{user_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.delete(user_id: 'usr_1')
+res = s.users.delete(user_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -363,14 +324,14 @@ Marks the given user as banned, which means that all their sessions are revoked 
 
 <!-- UsageSnippet language="ruby" operationID="BanUser" method="post" path="/users/{user_id}/ban" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.ban(user_id: 'user_12345')
+res = s.users.ban(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -403,14 +364,14 @@ Removes the ban mark from the given user.
 
 <!-- UsageSnippet language="ruby" operationID="UnbanUser" method="post" path="/users/{user_id}/unban" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.unban(user_id: 'user_12345')
+res = s.users.unban(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -443,7 +404,7 @@ Marks multiple users as banned, which means that all their sessions are revoked 
 
 <!-- UsageSnippet language="ruby" operationID="UsersBan" method="post" path="/users/ban" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -491,7 +452,7 @@ Removes the ban mark from multiple users.
 
 <!-- UsageSnippet language="ruby" operationID="UsersUnban" method="post" path="/users/unban" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -540,14 +501,14 @@ Lock duration can be configured in the instance's restrictions settings.
 
 <!-- UsageSnippet language="ruby" operationID="LockUser" method="post" path="/users/{user_id}/lock" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.lock(user_id: 'user_123456789')
+res = s.users.lock(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -580,14 +541,14 @@ Removes the lock from the given user.
 
 <!-- UsageSnippet language="ruby" operationID="UnlockUser" method="post" path="/users/{user_id}/unlock" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.unlock(user_id: 'user_12345')
+res = s.users.unlock(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -620,14 +581,14 @@ Update a user's profile image
 
 <!-- UsageSnippet language="ruby" operationID="SetUserProfileImage" method="post" path="/users/{user_id}/profile_image" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.set_profile_image(user_id: 'usr_test123', body: Models::Operations::SetUserProfileImageRequestBody.new())
+res = s.users.set_profile_image(user_id: '<id>', body: Models::Operations::SetUserProfileImageRequestBody.new())
 
 unless res.user.nil?
   # handle response
@@ -661,14 +622,14 @@ Delete a user's profile image
 
 <!-- UsageSnippet language="ruby" operationID="DeleteUserProfileImage" method="delete" path="/users/{user_id}/profile_image" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.delete_profile_image(user_id: 'usr_test123')
+res = s.users.delete_profile_image(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -708,14 +669,14 @@ You can remove metadata keys at any level by setting their value to `null`.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateUserMetadata" method="patch" path="/users/{user_id}/metadata" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.update_metadata(user_id: 'user_123456789')
+res = s.users.update_metadata(user_id: '<id>')
 
 unless res.user.nil?
   # handle response
@@ -751,7 +712,7 @@ The subscription contains subscription items which represent the individual plan
 
 <!-- UsageSnippet language="ruby" operationID="GetUserBillingSubscription" method="get" path="/users/{user_id}/billing/subscription" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -793,7 +754,7 @@ For OAuth 2.0, if the access token has expired and we have a corresponding refre
 
 <!-- UsageSnippet language="ruby" operationID="GetOAuthAccessToken" method="get" path="/users/{user_id}/oauth_access_tokens/{provider}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -801,8 +762,8 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::GetOAuthAccessTokenRequest.new(
-  user_id: 'user_123',
-  provider: 'oauth_google',
+  user_id: '<id>',
+  provider: '<value>',
 )
 
 res = s.users.get_o_auth_access_token(request: req)
@@ -838,14 +799,14 @@ Retrieve a paginated list of the user's organization memberships
 
 <!-- UsageSnippet language="ruby" operationID="UsersGetOrganizationMemberships" method="get" path="/users/{user_id}/organization_memberships" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.get_organization_memberships(user_id: 'usr_1234567890', limit: 10, offset: 0)
+res = s.users.get_organization_memberships(user_id: '<id>', limit: 10, offset: 0)
 
 unless res.organization_memberships.nil?
   # handle response
@@ -880,7 +841,7 @@ Retrieve a paginated list of the user's organization invitations
 
 <!-- UsageSnippet language="ruby" operationID="UsersGetOrganizationInvitations" method="get" path="/users/{user_id}/organization_invitations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -924,16 +885,14 @@ Useful for custom auth flows and re-verification.
 
 <!-- UsageSnippet language="ruby" operationID="VerifyPassword" method="post" path="/users/{user_id}/verify_password" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.verify_password(user_id: 'user_123', body: Models::Operations::VerifyPasswordRequestBody.new(
-  password: 'securepassword123',
-))
+res = s.users.verify_password(user_id: '<id>')
 
 unless res.object.nil?
   # handle response
@@ -970,16 +929,14 @@ Useful for custom auth flows and re-verification.
 
 <!-- UsageSnippet language="ruby" operationID="VerifyTOTP" method="post" path="/users/{user_id}/verify_totp" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.verify_totp(user_id: 'usr_1a2b3c', body: Models::Operations::VerifyTOTPRequestBody.new(
-  code: '123456',
-))
+res = s.users.verify_totp(user_id: '<id>')
 
 unless res.object.nil?
   # handle response
@@ -1013,14 +970,14 @@ Disable all of a user's MFA methods (e.g. OTP sent via SMS, TOTP on their authen
 
 <!-- UsageSnippet language="ruby" operationID="DisableMFA" method="delete" path="/users/{user_id}/mfa" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.users.disable_mfa(user_id: 'user_123456')
+res = s.users.disable_mfa(user_id: '<id>')
 
 unless res.object.nil?
   # handle response
@@ -1054,7 +1011,7 @@ Disable all of a user's backup codes.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteBackupCode" method="delete" path="/users/{user_id}/backup_code" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1095,7 +1052,7 @@ Delete the passkey identification for a given user and notify them through email
 
 <!-- UsageSnippet language="ruby" operationID="UserPasskeyDelete" method="delete" path="/users/{user_id}/passkeys/{passkey_identification_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1137,7 +1094,7 @@ Delete the web3 wallet identification for a given user.
 
 <!-- UsageSnippet language="ruby" operationID="UserWeb3WalletDelete" method="delete" path="/users/{user_id}/web3_wallets/{web3_wallet_identification_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1179,7 +1136,7 @@ Deletes all of the user's TOTPs.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteTOTP" method="delete" path="/users/{user_id}/totp" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1220,7 +1177,7 @@ Delete an external account by ID.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteExternalAccount" method="delete" path="/users/{user_id}/external_accounts/{external_account_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1262,7 +1219,7 @@ Sets the given user's password as compromised. The user will be prompted to rese
 
 <!-- UsageSnippet language="ruby" operationID="SetUserPasswordCompromised" method="post" path="/users/{user_id}/password/set_compromised" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1303,7 +1260,7 @@ Sets the given user's password as no longer compromised. The user will no longer
 
 <!-- UsageSnippet language="ruby" operationID="UnsetUserPasswordCompromised" method="post" path="/users/{user_id}/password/unset_compromised" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -1343,7 +1300,7 @@ Retrieves all organization user memberships for the given instance.
 
 <!-- UsageSnippet language="ruby" operationID="InstanceGetOrganizationMemberships" method="get" path="/organization_memberships" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

@@ -18,7 +18,7 @@ Creates a new organization domain. By default the domain is verified, but can be
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganizationDomain" method="post" path="/organizations/{organization_id}/domains" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -59,7 +59,7 @@ Get a list of all domains of an organization.
 
 <!-- UsageSnippet language="ruby" operationID="ListOrganizationDomains" method="get" path="/organizations/{organization_id}/domains" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -103,7 +103,7 @@ Updates the properties of an existing organization domain.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateOrganizationDomain" method="patch" path="/organizations/{organization_id}/domains/{domain_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -145,7 +145,7 @@ Removes the given domain from the organization.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOrganizationDomain" method="delete" path="/organizations/{organization_id}/domains/{domain_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -192,7 +192,7 @@ including its verification status, enrollment mode, and associated counts.
 
 <!-- UsageSnippet language="ruby" operationID="ListAllOrganizationDomains" method="get" path="/organization_domains" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

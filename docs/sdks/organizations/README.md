@@ -25,22 +25,14 @@ Most recent organizations will be returned first.
 
 <!-- UsageSnippet language="ruby" operationID="ListOrganizations" method="get" path="/organizations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::ListOrganizationsRequest.new(
-  query: 'false',
-  user_id: [
-    'clerk',
-  ],
-  organization_id: [
-    '-name',
-  ],
-)
+req = Models::Operations::ListOrganizationsRequest.new()
 
 res = s.organizations.list(request: req)
 
@@ -84,25 +76,14 @@ the next time they create a session, presuming they don't explicitly set a diffe
 
 <!-- UsageSnippet language="ruby" operationID="CreateOrganization" method="post" path="/organizations" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateOrganizationRequest.new(
-  name: 'NewOrg',
-  created_by: 'user_123',
-  private_metadata: {
-    "internal_code": 'ABC123',
-  },
-  public_metadata: {
-    "public_event": 'Annual Summit',
-  },
-  slug: 'neworg',
-  max_allowed_memberships: 100,
-)
+req = 
 
 res = s.organizations.create(request: req)
 
@@ -137,14 +118,14 @@ Fetches the organization whose ID or slug matches the provided `id_or_slug` URL 
 
 <!-- UsageSnippet language="ruby" operationID="GetOrganization" method="get" path="/organizations/{organization_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.get(organization_id: 'org_123')
+res = s.organizations.get(organization_id: '<id>')
 
 unless res.organization.nil?
   # handle response
@@ -179,14 +160,14 @@ Updates an existing organization
 
 <!-- UsageSnippet language="ruby" operationID="UpdateOrganization" method="patch" path="/organizations/{organization_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.update(organization_id: 'org_123_update', body: Models::Operations::UpdateOrganizationRequestBody.new())
+res = s.organizations.update(organization_id: '<id>', body: Models::Operations::UpdateOrganizationRequestBody.new())
 
 unless res.organization.nil?
   # handle response
@@ -225,14 +206,14 @@ organization will be cleared.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOrganization" method="delete" path="/organizations/{organization_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.delete(organization_id: 'org_321_delete')
+res = s.organizations.delete(organization_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -268,14 +249,14 @@ You can remove metadata keys at any level by setting their value to `null`.
 
 <!-- UsageSnippet language="ruby" operationID="MergeOrganizationMetadata" method="patch" path="/organizations/{organization_id}/metadata" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.merge_metadata(organization_id: 'org_12345', body: Models::Operations::MergeOrganizationMetadataRequestBody.new())
+res = s.organizations.merge_metadata(organization_id: '<id>', body: Models::Operations::MergeOrganizationMetadataRequestBody.new())
 
 unless res.organization.nil?
   # handle response
@@ -312,20 +293,14 @@ Only the following file content types are supported: `image/jpeg`, `image/png`, 
 
 <!-- UsageSnippet language="ruby" operationID="UploadOrganizationLogo" method="put" path="/organizations/{organization_id}/logo" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.upload_logo(organization_id: 'org_12345', body: Models::Operations::UploadOrganizationLogoRequestBody.new(
-  uploader_user_id: 'user_67890',
-  file: Models::Operations::UploadOrganizationLogoFile.new(
-    file_name: 'example.file',
-    content: File.binread("example.file"),
-  ),
-))
+res = s.organizations.upload_logo(organization_id: '<id>')
 
 unless res.organization_with_logo.nil?
   # handle response
@@ -359,14 +334,14 @@ Delete the organization's logo.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOrganizationLogo" method="delete" path="/organizations/{organization_id}/logo" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.organizations.delete_logo(organization_id: 'org_12345')
+res = s.organizations.delete_logo(organization_id: '<id>')
 
 unless res.organization.nil?
   # handle response
@@ -401,7 +376,7 @@ The subscription contains subscription items which represent the individual plan
 
 <!-- UsageSnippet language="ruby" operationID="GetOrganizationBillingSubscription" method="get" path="/organizations/{organization_id}/billing/subscription" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

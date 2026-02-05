@@ -19,19 +19,14 @@ Returns a preview of a template for a given template_type, slug and body
 
 <!-- UsageSnippet language="ruby" operationID="PreviewTemplate" method="post" path="/templates/{template_type}/{slug}/preview" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.templates.preview(template_type: 'email', slug: 'welcome-email', body: Models::Operations::PreviewTemplateRequestBody.new(
-  subject: 'Welcome to our service!',
-  body: 'Hi, thank you for joining our service.',
-  from_email_name: 'hello',
-  reply_to_email_name: 'support',
-))
+res = s.templates.preview(template_type: '<value>', slug: '<value>')
 
 unless res.object.nil?
   # handle response

@@ -44,4 +44,8 @@ class Clerk::Models::Operations::GetUsersCountRequest
   def created_at_before=(str_); end
   def created_at_after(); end
   def created_at_after=(str_); end
+  def last_sign_in_at_before(); end
+  def last_sign_in_at_before=(str_); end
+  def last_sign_in_at_after(); end
+  def last_sign_in_at_after=(str_); end
 end

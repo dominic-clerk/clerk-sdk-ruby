@@ -14,7 +14,7 @@ Retrieve a new testing token.
 
 <!-- UsageSnippet language="ruby" operationID="CreateTestingToken" method="post" path="/testing_tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

@@ -43,10 +43,10 @@ gem 'thruster', require: false
 # gem "image_processing", "~> 1.2"
 
 # path '../..' do
-#   gem 'clerk-sdk-ruby', require: 'clerk'
+#   gem 'dctest-sdk-ruby', require: 'clerk'
 # end
 
-gem 'clerk-sdk-ruby', '5.0.0.pre.beta', require: 'clerk'
+gem 'dctest-sdk-ruby', '5.0.0.pre.beta', require: 'clerk'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -22,7 +22,7 @@ The role sets are ordered by descending creation date by default.
 
 <!-- UsageSnippet language="ruby" operationID="ListRoleSets" method="get" path="/role_sets" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -67,7 +67,7 @@ You must provide at least one role and specify a default role key and creator ro
 
 <!-- UsageSnippet language="ruby" operationID="CreateRoleSet" method="post" path="/role_sets" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -117,7 +117,7 @@ Retrieves an existing role set by its key or ID.
 
 <!-- UsageSnippet language="ruby" operationID="GetRoleSet" method="get" path="/role_sets/{role_set_key_or_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -159,7 +159,7 @@ All parameters are optional - you can update only the fields you want to change.
 
 <!-- UsageSnippet language="ruby" operationID="UpdateRoleSet" method="patch" path="/role_sets/{role_set_key_or_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -202,7 +202,7 @@ Organizations using this role set will be migrated to the destination role set.
 
 <!-- UsageSnippet language="ruby" operationID="ReplaceRoleSet" method="post" path="/role_sets/{role_set_key_or_id}/replace" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -246,7 +246,7 @@ You can optionally update the default role or creator role when adding new roles
 
 <!-- UsageSnippet language="ruby" operationID="AddRolesToRoleSet" method="post" path="/role_sets/{role_set_key_or_id}/roles" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -293,7 +293,7 @@ the source role and reassigns any members to the destination role.
 
 <!-- UsageSnippet language="ruby" operationID="ReplaceRoleInRoleSet" method="post" path="/role_sets/{role_set_key_or_id}/roles/replace" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

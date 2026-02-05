@@ -15,14 +15,12 @@ It is used by Clerk SDKs when the user's authentication state cannot be immediat
 
 <!-- UsageSnippet language="ruby" operationID="GetPublicInterstitial" method="get" path="/public/interstitial" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new
 
-req = Models::Operations::GetPublicInterstitialRequest.new(
-  frontend_api_query_parameter1: 'pub_1a2b3c4d',
-)
+req = Models::Operations::GetPublicInterstitialRequest.new()
 
 res = s.miscellaneous.get_public_interstitial(request: req)
 

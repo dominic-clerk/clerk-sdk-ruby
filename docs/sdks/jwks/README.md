@@ -14,7 +14,7 @@ Retrieve the JSON Web Key Set of the instance
 
 <!-- UsageSnippet language="ruby" operationID="GetJWKS" method="get" path="/jwks" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

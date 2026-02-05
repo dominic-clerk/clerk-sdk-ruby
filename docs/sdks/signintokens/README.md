@@ -17,16 +17,14 @@ You can optionally supply a different duration in seconds using the `expires_in_
 
 <!-- UsageSnippet language="ruby" operationID="CreateSignInToken" method="post" path="/sign_in_tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateSignInTokenRequest.new(
-  user_id: 'user_12345',
-)
+req = 
 
 res = s.sign_in_tokens.create(request: req)
 
@@ -61,14 +59,14 @@ Revokes a pending sign-in token
 
 <!-- UsageSnippet language="ruby" operationID="RevokeSignInToken" method="post" path="/sign_in_tokens/{sign_in_token_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.sign_in_tokens.revoke(sign_in_token_id: 'tok_test_1234567890')
+res = s.sign_in_tokens.revoke(sign_in_token_id: '<id>')
 
 unless res.sign_in_token.nil?
   # handle response

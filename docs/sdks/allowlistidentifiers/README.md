@@ -16,7 +16,7 @@ Get a list of all identifiers allowed to sign up to an instance
 
 <!-- UsageSnippet language="ruby" operationID="ListAllowlistIdentifiers" method="get" path="/allowlist_identifiers" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -58,17 +58,14 @@ Create an identifier allowed to sign up to an instance
 
 <!-- UsageSnippet language="ruby" operationID="CreateAllowlistIdentifier" method="post" path="/allowlist_identifiers" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::CreateAllowlistIdentifierRequest.new(
-  identifier: 'user@example.com',
-  notify: true,
-)
+req = 
 
 res = s.allowlist_identifiers.create(request: req)
 
@@ -103,14 +100,14 @@ Delete an identifier from the instance allow-list
 
 <!-- UsageSnippet language="ruby" operationID="DeleteAllowlistIdentifier" method="delete" path="/allowlist_identifiers/{identifier_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.allowlist_identifiers.delete(identifier_id: 'example_identifier_id')
+res = s.allowlist_identifiers.delete(identifier_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response

@@ -16,7 +16,7 @@ Create a Svix app and associate it with the current instance
 
 <!-- UsageSnippet language="ruby" operationID="CreateSvixApp" method="post" path="/webhooks/svix" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -50,7 +50,7 @@ Delete a Svix app and disassociate it from the current instance
 
 <!-- UsageSnippet language="ruby" operationID="DeleteSvixApp" method="delete" path="/webhooks/svix" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -84,7 +84,7 @@ Generate a new URL for accessing the Svix's management dashboard for that partic
 
 <!-- UsageSnippet language="ruby" operationID="GenerateSvixAuthURL" method="post" path="/webhooks/svix_url" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

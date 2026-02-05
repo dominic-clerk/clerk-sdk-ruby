@@ -15,18 +15,14 @@ Updates the settings of an instance
 
 <!-- UsageSnippet language="ruby" operationID="UpdateInstanceAuthConfig" method="patch" path="/beta_features/instance_settings" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::UpdateInstanceAuthConfigRequest.new(
-  from_email_address: 'noreply',
-  progressive_sign_up: true,
-  test_mode: true,
-)
+req = 
 
 res = s.beta_features.update_instance_settings(request: req)
 
@@ -67,16 +63,14 @@ WARNING: Changing your domain will invalidate all current user sessions (i.e. us
 
 <!-- UsageSnippet language="ruby" operationID="UpdateProductionInstanceDomain" method="put" path="/beta_features/domain" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-req = Models::Operations::UpdateProductionInstanceDomainRequest.new(
-  home_url: 'https://www.example.com',
-)
+req = 
 
 res = s.beta_features.update_production_instance_domain(request: req)
 

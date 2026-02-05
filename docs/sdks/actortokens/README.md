@@ -16,7 +16,7 @@ The `actor` parameter needs to include at least a "sub" key whose value is the I
 
 <!-- UsageSnippet language="ruby" operationID="CreateActorToken" method="post" path="/actor_tokens" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -24,7 +24,7 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::CreateActorTokenRequest.new(
-  user_id: 'user_1a2b3c',
+  user_id: '<id>',
   actor: Models::Operations::Actor.new(
     sub: 'user_2OEpKhcCN1Lat9NQ0G6puh7q5Rb',
   ),
@@ -63,14 +63,14 @@ Revokes a pending actor token.
 
 <!-- UsageSnippet language="ruby" operationID="RevokeActorToken" method="post" path="/actor_tokens/{actor_token_id}/revoke" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.actor_tokens.revoke(actor_token_id: 'act_tok_abcdefghijk')
+res = s.actor_tokens.revoke(actor_token_id: '<id>')
 
 unless res.actor_token.nil?
   # handle response

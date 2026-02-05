@@ -22,7 +22,7 @@ Most recent OAuth applications will be returned first.
 
 <!-- UsageSnippet language="ruby" operationID="ListOAuthApplications" method="get" path="/oauth_applications" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -67,7 +67,7 @@ All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
 
 <!-- UsageSnippet language="ruby" operationID="CreateOAuthApplication" method="post" path="/oauth_applications" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
@@ -75,7 +75,7 @@ s = ::Clerk::OpenAPIClient.new(
     )
 
 req = Models::Operations::CreateOAuthApplicationRequest.new(
-  name: 'Example App',
+  name: '<value>',
   scopes: 'profile email public_metadata',
 )
 
@@ -112,14 +112,14 @@ Fetches the OAuth application whose ID matches the provided `id` in the path.
 
 <!-- UsageSnippet language="ruby" operationID="GetOAuthApplication" method="get" path="/oauth_applications/{oauth_application_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.oauth_applications.get(oauth_application_id: 'oauth_app_12345')
+res = s.oauth_applications.get(oauth_application_id: '<id>')
 
 unless res.o_auth_application.nil?
   # handle response
@@ -152,14 +152,14 @@ Updates an existing OAuth application
 
 <!-- UsageSnippet language="ruby" operationID="UpdateOAuthApplication" method="patch" path="/oauth_applications/{oauth_application_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.oauth_applications.update(oauth_application_id: 'oauth_app_67890', body: Models::Operations::UpdateOAuthApplicationRequestBody.new(
+res = s.oauth_applications.update(oauth_application_id: '<id>', body: Models::Operations::UpdateOAuthApplicationRequestBody.new(
   scopes: 'profile email public_metadata private_metadata',
 ))
 
@@ -196,14 +196,14 @@ This is not reversible.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteOAuthApplication" method="delete" path="/oauth_applications/{oauth_application_id}" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.oauth_applications.delete(oauth_application_id: 'oauth_app_09876')
+res = s.oauth_applications.delete(oauth_application_id: '<id>')
 
 unless res.deleted_object.nil?
   # handle response
@@ -237,14 +237,14 @@ When the client secret is rotated, make sure to update it in authorized OAuth cl
 
 <!-- UsageSnippet language="ruby" operationID="RotateOAuthApplicationSecret" method="post" path="/oauth_applications/{oauth_application_id}/rotate_secret" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
       bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
     )
 
-res = s.oauth_applications.rotate_secret(oauth_application_id: 'oauth_application_12345')
+res = s.oauth_applications.rotate_secret(oauth_application_id: '<id>')
 
 unless res.o_auth_application_with_secret.nil?
   # handle response

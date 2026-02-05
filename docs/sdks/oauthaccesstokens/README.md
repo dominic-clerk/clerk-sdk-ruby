@@ -14,7 +14,7 @@ Verify an OAuth Access Token
 
 <!-- UsageSnippet language="ruby" operationID="verifyOAuthAccessToken" method="post" path="/oauth_applications/access_tokens/verify" -->
 ```ruby
-require 'clerk_sdk_ruby'
+require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(

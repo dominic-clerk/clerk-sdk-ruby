@@ -1,8 +1,8 @@
-# clerk-sdk-ruby
+# dctest-sdk-ruby
 
-Developer-friendly & type-safe Ruby SDK specifically catered to leverage *clerk-sdk-ruby* API.
+Developer-friendly & type-safe Ruby SDK specifically catered to leverage *dctest-sdk-ruby* API.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=clerk-sdk-ruby&utm_campaign=ruby)
+[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=dctest-sdk-ruby&utm_campaign=ruby)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
 
 
@@ -27,7 +27,7 @@ More information about the API can be found at https://clerk.com/docs
 
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [clerk-sdk-ruby](#clerk-sdk-ruby)
+* [dctest-sdk-ruby](#dctest-sdk-ruby)
   * [SDK Installation](#sdk-installation)
   * [Configuration](#configuration)
   * [Framework Integration](#framework-integration)
@@ -45,7 +45,7 @@ More information about the API can be found at https://clerk.com/docs
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'clerk-sdk-ruby', require: "clerk"
+gem 'dctest-sdk-ruby', require: "clerk"
 ```
 
 And then execute:
@@ -381,6 +381,8 @@ end
 ### [Billing](docs/sdks/billing/README.md)
 
 * [list_plans](docs/sdks/billing/README.md#list_plans) - List all billing plans
+* [list_prices](docs/sdks/billing/README.md#list_prices) - List all billing prices
+* [create_price](docs/sdks/billing/README.md#create_price) - Create a custom billing price
 * [list_subscription_items](docs/sdks/billing/README.md#list_subscription_items) - List all subscription items
 * [cancel_subscription_item](docs/sdks/billing/README.md#cancel_subscription_item) - Cancel a subscription item
 * [extend_subscription_item_free_trial](docs/sdks/billing/README.md#extend_subscription_item_free_trial) - Extend free trial for a subscription item
@@ -648,6 +650,7 @@ end
 
 * [list](docs/sdks/waitlistentries/README.md#list) - List all waitlist entries
 * [create](docs/sdks/waitlistentries/README.md#create) - Create a waitlist entry
+* [bulk_create](docs/sdks/waitlistentries/README.md#bulk_create) - Create multiple waitlist entries
 * [delete](docs/sdks/waitlistentries/README.md#delete) - Delete a pending waitlist entry
 * [invite](docs/sdks/waitlistentries/README.md#invite) - Invite a waitlist entry
 * [reject](docs/sdks/waitlistentries/README.md#reject) - Reject a waitlist entry
@@ -746,4 +749,4 @@ looking for the latest version.
 While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
 We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
 
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=clerk-sdk-ruby&utm_campaign=ruby)
+### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=dctest-sdk-ruby&utm_campaign=ruby)
