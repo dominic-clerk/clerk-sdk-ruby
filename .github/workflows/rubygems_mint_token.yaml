@@ -26,4 +26,4 @@ jobs:
           fi
           echo "rubygems_oidc=$RUBYGEMS_OIDC" >> "$GITHUB_OUTPUT"
     outputs:
-      rubygems_token: ${{ steps.output-token.outputs.rubygems_oidc }}
+      rubygems_oidc: ${{ steps.output-token.outputs.rubygems_oidc }}
