@@ -28,7 +28,9 @@ jobs:
     needs: mint_rubygems_token
     env: 
       test: eyJ${{ needs.mint_rubygems_token.outputs.rubygems_token }}
-    run: echo $test | base64
+    steps:
+      - name: bla
+        run: echo $test | base64
   generate:
     needs: mint_rubygems_token
     uses: speakeasy-api/sdk-generation-action/.github/workflows/workflow-executor.yaml@v15
