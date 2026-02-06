@@ -84,9 +84,20 @@ module Clerk
         # Counts users whose last sign-in was after the given date (with millisecond precision).
         # Example: use 1700690400000 to count users whose last sign-in was after 2023-11-23.
         field :last_sign_in_at_after, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'last_sign_in_at_after', 'style': 'form', 'explode': true } }
+        # Counts users with external accounts for the specified OAuth provider.
+        # Must be used in combination with the `provider_user_id` parameter.
+        # For example, use `provider=oauth_google&provider_user_id=12345` to count users with Google provider user ID 12345.
+        # Accepts up to 100 providers.
+        field :provider, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
+        # Counts users with the specified provider user IDs for a specific provider.
+        # Must be used in combination with the `provider` parameter.
+        # For example, use `provider=oauth_google&provider_user_id=12345` to count users with Google provider user ID 12345.
+        # Accepts up to 100 provider user IDs.
+        # Any provider user IDs not found are ignored.
+        field :provider_user_id, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'provider_user_id', 'style': 'form', 'explode': true } }
 
         
-        def initialize(email_address: nil, phone_number: nil, external_id: nil, username: nil, web3_wallet: nil, user_id: nil, organization_id: nil, query: nil, email_address_query: nil, phone_number_query: nil, username_query: nil, name_query: nil, banned: nil, last_active_at_before: nil, last_active_at_after: nil, last_active_at_since: nil, created_at_before: nil, created_at_after: nil, last_sign_in_at_before: nil, last_sign_in_at_after: nil)
+        def initialize(email_address: nil, phone_number: nil, external_id: nil, username: nil, web3_wallet: nil, user_id: nil, organization_id: nil, query: nil, email_address_query: nil, phone_number_query: nil, username_query: nil, name_query: nil, banned: nil, last_active_at_before: nil, last_active_at_after: nil, last_active_at_since: nil, created_at_before: nil, created_at_after: nil, last_sign_in_at_before: nil, last_sign_in_at_after: nil, provider: nil, provider_user_id: nil)
           @email_address = email_address
           @phone_number = phone_number
           @external_id = external_id
@@ -107,6 +118,8 @@ module Clerk
           @created_at_after = created_at_after
           @last_sign_in_at_before = last_sign_in_at_before
           @last_sign_in_at_after = last_sign_in_at_after
+          @provider = provider
+          @provider_user_id = provider_user_id
         end
 
         
@@ -132,6 +145,8 @@ module Clerk
           return false unless @created_at_after == other.created_at_after
           return false unless @last_sign_in_at_before == other.last_sign_in_at_before
           return false unless @last_sign_in_at_after == other.last_sign_in_at_after
+          return false unless @provider == other.provider
+          return false unless @provider_user_id == other.provider_user_id
           true
         end
       end

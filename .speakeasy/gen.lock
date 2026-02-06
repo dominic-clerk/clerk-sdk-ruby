@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6288487c-6723-4c44-b2f5-06c366176fbf
 management:
-  docChecksum: 1b214d392d11fc4b06967a91a3411d12
+  docChecksum: 5505253ac794920d58211d8ec692d7b2
   docVersion: "2025-11-10"
-  speakeasyVersion: 1.704.0
-  generationVersion: 2.806.4
-  releaseVersion: 5.0.5
-  configChecksum: 83d0548eb5f11a6249b888a3416ef016
+  speakeasyVersion: 1.707.1
+  generationVersion: 2.811.0
+  releaseVersion: 5.0.6
+  configChecksum: 11da96cd0142226b8623c02356a849ef
   repoURL: https://github.com/dominic-clerk/clerk-sdk-ruby.git
   installationURL: https://github.com/dominic-clerk/clerk-sdk-ruby
   published: true
 persistentEdits:
-  generation_id: b9d4f5a8-86e4-445d-a808-62a688353503
-  pristine_commit_hash: 45b079674eb32a66843faf1b2f70bc28028ec9dd
-  pristine_tree_hash: 3f1fb084893183213a2f3fe17a6a8327027fa3a7
+  generation_id: 627f3e45-57cb-450b-925e-b6ab06d13e53
+  pristine_commit_hash: e7e55a3ac6dd38916ee3fcb4b2b7ad4a34baf8e3
+  pristine_tree_hash: a59c2e3f8baa2231dd69e653fa8039d6a9dfbd53
 features:
   ruby:
     additionalProperties: 0.1.0
@@ -22,7 +22,7 @@ features:
     deprecations: 2.81.2
     examples: 2.81.6
     flattening: 2.81.1
-    globalSecurity: 2.81.9
+    globalSecurity: 2.81.10
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.83.0
     groups: 2.81.3
@@ -46,8 +46,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:bd209bd9f18f6de3d2f3103a7fd1bcdf14300115
-    pristine_git_object: 55c383c01d6f1224d2804965e73a2b950b0bd0c8
+    last_write_checksum: sha1:40701b09d9aa99f0794bc38d560a4814f6853c59
+    pristine_git_object: b137cef9e8c2df8c2864a1a29314a93964329b55
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:3bb027e7620352086cf7ac562ce0c2a1473763bd
@@ -58,8 +58,8 @@ trackedFiles:
     pristine_git_object: 61c4a10d791d680282fcc819a44d358d04720050
   dctest-sdk-ruby.gemspec:
     id: 61e6d30fe51a
-    last_write_checksum: sha1:41577d5696852b4f60d88b8871582d99edcf3f7f
-    pristine_git_object: bb9a789522f43301ff7c7692c44c86a5288bdbe1
+    last_write_checksum: sha1:71d53d383f1e0402a717e0f34c7c0004d08c3bbc
+    pristine_git_object: f2e9c48bfbae610006ebce7b580bfdc4c9da858d
   docs/models/components/actortoken.md:
     id: 6f567bd2f98e
     last_write_checksum: sha1:20b5bcc73de9dd30005ace61e79932376c978594
@@ -2674,8 +2674,8 @@ trackedFiles:
     pristine_git_object: ee2dfc3c8570d9ef8b70e18fc425c54115d0e993
   docs/models/operations/getuserlistrequest.md:
     id: 4cea1bd2bd0e
-    last_write_checksum: sha1:3bbafca0e1b43db3141f73366032f1f6f181bd2c
-    pristine_git_object: 2a5c47ea5881f520ea2a1f65165838d3bf322879
+    last_write_checksum: sha1:313063b6294dae5028ccea0e49711364b85c7c11
+    pristine_git_object: 0927e075c22ab264b139ce30be65ff9f5667410d
   docs/models/operations/getuserlistresponse.md:
     id: 93a5ad77f0ff
     last_write_checksum: sha1:4bdd1a0e22d5d4327065b21c8f6310cfee6fdc78
@@ -2690,8 +2690,8 @@ trackedFiles:
     pristine_git_object: 3821c2bba8dde976ddef870b26732a2a4ce51b65
   docs/models/operations/getuserscountrequest.md:
     id: 7254e732a97b
-    last_write_checksum: sha1:d51d5588b13576972b8169392076619970b71f5c
-    pristine_git_object: 751f11cb3bfa1d8473e1c5e6135777f42578c150
+    last_write_checksum: sha1:e74265e173c21807940f1c349b5b5bc49440e87f
+    pristine_git_object: 1d2527127c2c31cdbf12723cffa459e2abaed276
   docs/models/operations/getuserscountresponse.md:
     id: 49f04d4e5308
     last_write_checksum: sha1:c0d174573a4fa3d4e88f6204cc05237e28f1e506
@@ -3246,8 +3246,8 @@ trackedFiles:
     pristine_git_object: 3793558c91a5271d21adefd14c1d0a27591247a0
   docs/models/operations/updateinstanceauthconfigrequest.md:
     id: ba269e4d358c
-    last_write_checksum: sha1:e8508fa480486947cc2dd5e2d140e816d856a747
-    pristine_git_object: ed5c759ae003da9b76dae38e27c7a833693b39d8
+    last_write_checksum: sha1:ceae368a9e2c2c5d3c3871ead02d38e919b9ee6a
+    pristine_git_object: 017e8f0ddc77569b342d54e470db975384f751c2
   docs/models/operations/updateinstanceauthconfigresponse.md:
     id: aef75fa35a22
     last_write_checksum: sha1:ae75cd93fda362959b05559a87b5107f771319d5
@@ -9190,12 +9190,12 @@ trackedFiles:
     pristine_git_object: 802b77892b5fa235b9cecef6cfc8827e1bd17e0b
   lib/clerk/models/operations/getuserlist_request.rb:
     id: 7b3530bd2f7c
-    last_write_checksum: sha1:ecd2980b1cc24276d5633f4dadcf0e429c9da76b
-    pristine_git_object: 170f09ee652355609e9ddfa187d332eaeeabea64
+    last_write_checksum: sha1:0a38bcb2ab453a42733bbcc3142b0ad7e54a7ac1
+    pristine_git_object: f4906fa37dd3348adb2a460e492a11f0da4f3da4
   lib/clerk/models/operations/getuserlist_request.rbi:
     id: 669bf9290a66
-    last_write_checksum: sha1:135e1ccc763fd527e4432fd09841458ebd250845
-    pristine_git_object: 0719bda49f69257b8d852a0989badc3af6392f55
+    last_write_checksum: sha1:764fdb2fb88a7d2f4fe75d62034e2dbd17ea272b
+    pristine_git_object: aa1d9d92f564d62618aa30e6941103883bf413cb
   lib/clerk/models/operations/getuserlist_response.rb:
     id: 1ee6af232831
     last_write_checksum: sha1:8c920f585a3e225b0d352e7fbcd4388ef85e3a60
@@ -9206,12 +9206,12 @@ trackedFiles:
     pristine_git_object: e1617b5d1caf563ed7758770e255788c62b16fe0
   lib/clerk/models/operations/getuserscount_request.rb:
     id: d70acb45973c
-    last_write_checksum: sha1:af58f758770c92c72614bba9f51d9909278b8533
-    pristine_git_object: 2792d99a3deda485105af4ccedaa50c80a535d65
+    last_write_checksum: sha1:ec4a41cdaccab75d7eb64faf0353ce01e5feb258
+    pristine_git_object: 8fa5a0fdb1c10a85b7f530a7be20638032a9ec0e
   lib/clerk/models/operations/getuserscount_request.rbi:
     id: 8bc4d90b5793
-    last_write_checksum: sha1:5c25d68cc27ad8182ba366deccf6d180936e0a4c
-    pristine_git_object: 4829e4ea0dfbafd9b3ae2aa8b65129fe3f1cade3
+    last_write_checksum: sha1:169a2647e936c4fbb6a496384e0aae03f3cb8fb1
+    pristine_git_object: 1d5055faa5ea53c0390ea6d7a4e4674cef844ad3
   lib/clerk/models/operations/getuserscount_response.rb:
     id: 5f2b89a0b962
     last_write_checksum: sha1:a279653f68f32d03cc92cc7481cf16dce9601c16
@@ -10334,8 +10334,8 @@ trackedFiles:
     pristine_git_object: 21becb2e17e38fa75d4ffb5a46e04785081cbf10
   lib/clerk/models/operations/updateinstanceauthconfig_request.rb:
     id: 6f9061de9846
-    last_write_checksum: sha1:aa7527ea7ec4f5cff371bcbedbd4cbe9cce563fa
-    pristine_git_object: ed879d6902c6900fb15ff11d5dc630f373663b67
+    last_write_checksum: sha1:9a6ce2063241c9ed30f68850144e80e3b70d1a34
+    pristine_git_object: fe23118c32f6b4f5d6e0310b5539df134fc3fa86
   lib/clerk/models/operations/updateinstanceauthconfig_request.rbi:
     id: f8f7dc673919
     last_write_checksum: sha1:7b2bb6215c1472db1e5dc93b61c3ad3393182419
@@ -11278,8 +11278,8 @@ trackedFiles:
     pristine_git_object: a9439db9cbc91b3abef17baf0d438a99a9190cf0
   lib/clerk/sdkconfiguration.rb:
     id: 005b930c709e
-    last_write_checksum: sha1:e1db229504a6ff28162c5bf88e35b69350511397
-    pristine_git_object: bb6d4a6672f926d33fe81faa95f1a920437dc3af
+    last_write_checksum: sha1:ada6b3feffd443897718b6fbda72d203477b8216
+    pristine_git_object: 5ffb57f33d263f9855e99e5f51ada0ec305f3c30
   lib/clerk/sdkconfiguration.rbi:
     id: c7163e8cf2ca
     last_write_checksum: sha1:fea1767a154b4575f107e7dda123f1cc89a1c581
@@ -13395,3 +13395,7 @@ examples:
         "404":
           application/json: {"errors": []}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Ruby SDK Changes:
+  * `open_api_client.users.list()`:  `request` **Changed**
+  * `open_api_client.users.count()`:  `request` **Changed**
