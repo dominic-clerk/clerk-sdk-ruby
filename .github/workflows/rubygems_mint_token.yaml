@@ -20,6 +20,6 @@ jobs:
       - name: Export token for Speakeasy
         id: output-token
         run: |
-          echo "rubygems_token=${RUBYGEMS_API_KEY:3}" >> "$GITHUB_OUTPUT"
+          echo "rubygems_token=${RUBYGEMS_API_KEY:9}" >> "$GITHUB_OUTPUT"
     outputs:
       rubygems_token: ${{ steps.output-token.outputs.rubygems_token }}
