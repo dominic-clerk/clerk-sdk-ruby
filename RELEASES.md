@@ -69,3 +69,13 @@ Based on:
 - [ruby v5.0.6] .
 ### Releases
 - [Ruby Gems v5.0.6] https://rubygems.org/gems/dctest-sdk-ruby/versions/5.0.6 - .
+
+## 2026-02-06 17:10:30
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.707.1 (2.811.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v5.0.7] .
+### Releases
+- [Ruby Gems v5.0.7] https://rubygems.org/gems/dctest-sdk-ruby/versions/5.0.7 - .
