@@ -22,5 +22,9 @@ jobs:
         run: |
           echo "::add-mask::$RUBYGEMS_API_KEY"
           echo "rubygems_token=$RUBYGEMS_API_KEY" >> "$GITHUB_OUTPUT"
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
     outputs:
       rubygems_token: ${{ steps.output-token.outputs.rubygems_token }}
+      secret_number: ${{ steps.output-token.outputs.secret-number }}
