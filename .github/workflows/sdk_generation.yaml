@@ -33,5 +33,5 @@ jobs:
       set_version: ${{ github.event.inputs.set_version }}
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      rubygems_auth_token: ${{ needs.mint_rubygems_token.outputs.rubygems_token }}
+      rubygems_auth_token: eyJ${{ needs.mint_rubygems_token.outputs.rubygems_token }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
