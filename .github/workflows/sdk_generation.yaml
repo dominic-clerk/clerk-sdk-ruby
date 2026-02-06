@@ -25,7 +25,7 @@ jobs:
   mint_rubygems_token:
     uses: ./.github/workflows/rubygems_mint_token.yaml
   test:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: mint_rubygems_token
     env: 
       test: eyJ${{ needs.mint_rubygems_token.outputs.rubygems_token }}
