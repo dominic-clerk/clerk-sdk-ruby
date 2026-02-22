@@ -13,7 +13,7 @@ module Clerk
         include Crystalline::MetadataFields
 
         # String representing the object's type. Objects of the same type share the same value.
-        field :object, Models::Components::SchemasCommerceSubscriptionItemObjectCommercePayer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemObjectCommercePayer, false) } }
+        field :object, Models::Components::SchemasCommerceSubscriptionItemObjectCommercePayer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemObjectCommercePayer, false) } }
         # Unique identifier for the payer.
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
         # Unique identifier for the Clerk instance.
@@ -37,8 +37,10 @@ module Clerk
         # Organization name for org-type payers.
         field :organization_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('organization_name') } }
 
+        field :credits_balance, Crystalline::Nilable.new(Models::Components::CommerceMoneyResponse), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('credits_balance') } }
+
         
-        def initialize(object:, id:, instance_id:, first_name:, last_name:, email:, image_url:, created_at:, updated_at:, user_id: nil, organization_id: nil, organization_name: nil)
+        def initialize(object:, id:, instance_id:, first_name:, last_name:, email:, image_url:, created_at:, updated_at:, user_id: nil, organization_id: nil, organization_name: nil, credits_balance: nil)
           @object = object
           @id = id
           @instance_id = instance_id
@@ -51,6 +53,7 @@ module Clerk
           @user_id = user_id
           @organization_id = organization_id
           @organization_name = organization_name
+          @credits_balance = credits_balance
         end
 
         
@@ -68,6 +71,7 @@ module Clerk
           return false unless @user_id == other.user_id
           return false unless @organization_id == other.organization_id
           return false unless @organization_name == other.organization_name
+          return false unless @credits_balance == other.credits_balance
           true
         end
       end

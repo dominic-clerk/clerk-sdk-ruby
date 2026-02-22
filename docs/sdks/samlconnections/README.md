@@ -24,11 +24,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::ListSAMLConnectionsRequest.new()
-
+req = Models::Operations::ListSAMLConnectionsRequest.new
 res = s.saml_connections.list(request: req)
 
 unless res.saml_connections.nil?
@@ -66,11 +65,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.saml_connections.create(request: req)
 
 unless res.schemas_saml_connection.nil?
@@ -108,9 +106,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.saml_connections.get(saml_connection_id: '<id>')
 
 unless res.schemas_saml_connection.nil?
@@ -148,10 +145,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.saml_connections.update(saml_connection_id: '<id>', body: Models::Operations::UpdateSAMLConnectionRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.saml_connections.update(saml_connection_id: '<id>', body: Models::Operations::UpdateSAMLConnectionRequestBody.new)
 
 unless res.schemas_saml_connection.nil?
   # handle response
@@ -189,9 +185,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.saml_connections.delete(saml_connection_id: '<id>')
 
 unless res.deleted_object.nil?

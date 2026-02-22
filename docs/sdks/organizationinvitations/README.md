@@ -29,11 +29,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::ListInstanceOrganizationInvitationsRequest.new()
-
+req = Models::Operations::ListInstanceOrganizationInvitationsRequest.new
 res = s.organization_invitations.get_all(request: req)
 
 unless res.organization_invitations_with_public_organization_data.nil?
@@ -87,9 +86,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_invitations.create(organization_id: '<id>')
 
 unless res.organization_invitation.nil?
@@ -133,13 +131,12 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-req = Models::Operations::ListOrganizationInvitationsRequest.new(
-  organization_id: '<id>',
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
 )
 
+req = Models::Operations::ListOrganizationInvitationsRequest.new(
+  organization_id: '<id>'
+)
 res = s.organization_invitations.list(request: req)
 
 unless res.organization_invitations.nil?
@@ -192,13 +189,12 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_invitations.bulk_create(organization_id: '<id>', body: [
   Models::Operations::CreateOrganizationInvitationBulkRequestBody.new(
     email_address: 'Jeffrey.Skiles27@hotmail.com',
-    role: '<value>',
+    role: '<value>'
   ),
 ])
 
@@ -245,9 +241,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_invitations.list_pending(organization_id: '<id>', limit: 10, offset: 0)
 
 unless res.organization_invitations.nil?
@@ -287,9 +282,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_invitations.get(organization_id: '<id>', invitation_id: '<id>')
 
 unless res.organization_invitation.nil?
@@ -332,9 +326,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_invitations.revoke(organization_id: '<id>', invitation_id: '<id>')
 
 unless res.organization_invitation.nil?
