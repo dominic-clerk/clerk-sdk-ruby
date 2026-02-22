@@ -26,10 +26,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.instance_settings.get()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.instance_settings.get
 
 unless res.instance.nil?
   # handle response
@@ -59,11 +58,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update(request: req)
 
 if res.status_code == 200
@@ -101,11 +99,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_restrictions(request: req)
 
 unless res.instance_restrictions.nil?
@@ -147,11 +144,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.change_domain(request: req)
 
 if res.status_code == 200
@@ -189,11 +185,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_organization_settings(request: req)
 
 unless res.organization_settings.nil?
@@ -231,10 +226,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.instance_settings.get_instance_protect()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.instance_settings.get_instance_protect
 
 unless res.instance_protect.nil?
   # handle response
@@ -264,11 +258,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_instance_protect(request: req)
 
 unless res.instance_protect.nil?

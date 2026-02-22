@@ -29,11 +29,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::ListOrganizationsRequest.new()
-
+req = Models::Operations::ListOrganizationsRequest.new
 res = s.organizations.list(request: req)
 
 unless res.organizations.nil?
@@ -80,11 +79,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.organizations.create(request: req)
 
 unless res.organization.nil?
@@ -122,9 +120,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.get(organization_id: '<id>')
 
 unless res.organization.nil?
@@ -164,10 +161,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.organizations.update(organization_id: '<id>', body: Models::Operations::UpdateOrganizationRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.update(organization_id: '<id>', body: Models::Operations::UpdateOrganizationRequestBody.new)
 
 unless res.organization.nil?
   # handle response
@@ -210,9 +206,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.delete(organization_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -253,10 +248,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.organizations.merge_metadata(organization_id: '<id>', body: Models::Operations::MergeOrganizationMetadataRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.merge_metadata(organization_id: '<id>', body: Models::Operations::MergeOrganizationMetadataRequestBody.new)
 
 unless res.organization.nil?
   # handle response
@@ -297,9 +291,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.upload_logo(organization_id: '<id>')
 
 unless res.organization_with_logo.nil?
@@ -338,9 +331,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.delete_logo(organization_id: '<id>')
 
 unless res.organization.nil?
@@ -380,9 +372,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.get_billing_subscription(organization_id: '<id>')
 
 unless res.commerce_subscription.nil?
