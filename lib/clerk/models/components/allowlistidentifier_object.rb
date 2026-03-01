@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # AllowlistIdentifierObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class AllowlistIdentifierObject
-
-
         include ::Crystalline::Enum
-
         enums do
           ALLOWLIST_IDENTIFIER = new('allowlist_identifier')
         end

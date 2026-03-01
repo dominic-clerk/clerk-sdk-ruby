@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # ClientObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class ClientObject
-
-
         include ::Crystalline::Enum
-
         enums do
           CLIENT = new('client')
         end

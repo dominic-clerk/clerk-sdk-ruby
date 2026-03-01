@@ -23,9 +23,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.email_and_sms_templates.upsert(template_type: Models::Operations::UpsertTemplateTemplateType::EMAIL, slug: '<value>')
 
 unless res.template.nil?
