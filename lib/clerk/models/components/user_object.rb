@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # UserObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class UserObject
-
-
         include ::Crystalline::Enum
-
         enums do
           USER = new('user')
         end

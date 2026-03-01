@@ -19,11 +19,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.beta_features.update_instance_settings(request: req)
 
 unless res.instance_settings.nil?
@@ -67,11 +66,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.beta_features.update_production_instance_domain(request: req)
 
 if res.status_code == 200

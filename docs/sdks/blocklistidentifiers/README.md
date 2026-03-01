@@ -20,10 +20,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.blocklist_identifiers.list()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.blocklist_identifiers.list
 
 unless res.blocklist_identifiers.nil?
   # handle response
@@ -54,11 +53,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.blocklist_identifiers.create(request: req)
 
 unless res.blocklist_identifier.nil?
@@ -96,9 +94,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.blocklist_identifiers.delete(identifier_id: '<id>')
 
 unless res.deleted_object.nil?

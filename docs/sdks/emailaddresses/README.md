@@ -21,11 +21,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.email_addresses.create(request: req)
 
 unless res.email_address.nil?
@@ -46,10 +45,10 @@ end
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| Models::Errors::ClerkErrors | 400, 401, 403, 404, 422     | application/json            |
-| Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Models::Errors::ClerkErrors  | 400, 401, 403, 404, 409, 422 | application/json             |
+| Errors::APIError             | 4XX, 5XX                     | \*/\*                        |
 
 ## get
 
@@ -63,9 +62,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.email_addresses.get(email_address_id: '<id>')
 
 unless res.email_address.nil?
@@ -103,9 +101,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.email_addresses.delete(email_address_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -143,9 +140,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.email_addresses.update(email_address_id: '<id>')
 
 unless res.email_address.nil?
@@ -169,5 +165,5 @@ end
 
 | Error Type                  | Status Code                 | Content Type                |
 | --------------------------- | --------------------------- | --------------------------- |
-| Models::Errors::ClerkErrors | 400, 401, 403, 404          | application/json            |
+| Models::Errors::ClerkErrors | 400, 401, 403, 404, 409     | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |

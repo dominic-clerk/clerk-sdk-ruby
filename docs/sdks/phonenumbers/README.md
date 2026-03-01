@@ -21,11 +21,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.phone_numbers.create(request: req)
 
 unless res.phone_number.nil?
@@ -63,9 +62,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.phone_numbers.get(phone_number_id: '<id>')
 
 unless res.phone_number.nil?
@@ -103,9 +101,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.phone_numbers.delete(phone_number_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -143,9 +140,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.phone_numbers.update(phone_number_id: '<id>')
 
 unless res.phone_number.nil?

@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # OrganizationInvitationWithPublicOrganizationDataObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class OrganizationInvitationWithPublicOrganizationDataObject
-
-
         include ::Crystalline::Enum
-
         enums do
           ORGANIZATION_INVITATION = new('organization_invitation')
         end
