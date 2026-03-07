@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # Web3WalletObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class Web3WalletObject
-
-
         include ::Crystalline::Enum
-
         enums do
           WEB3_WALLET = new('web3_wallet')
         end

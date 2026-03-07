@@ -1,5 +1,13 @@
 # EnrollmentMode
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EnrollmentMode::MANUAL_INVITATION
+```
+
 
 ## Values
 

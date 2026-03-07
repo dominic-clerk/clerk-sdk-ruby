@@ -1,5 +1,13 @@
 # VerificationEmailLinkStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationEmailLinkStatus::UNVERIFIED
+```
+
 
 ## Values
 

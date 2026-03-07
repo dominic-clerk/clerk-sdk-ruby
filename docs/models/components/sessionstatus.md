@@ -1,5 +1,13 @@
 # SessionStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SessionStatus::ACTIVE
+```
+
 
 ## Values
 

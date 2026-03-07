@@ -2,6 +2,14 @@
 
 The IdP provider of the connection.
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = Provider2::SAML_CUSTOM
+```
+
 
 ## Values
 

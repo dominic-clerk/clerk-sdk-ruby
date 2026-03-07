@@ -1,5 +1,13 @@
 # SAMLAccountVerificationSAMLStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SAMLAccountVerificationSAMLStatus::UNVERIFIED
+```
+
 
 ## Values
 

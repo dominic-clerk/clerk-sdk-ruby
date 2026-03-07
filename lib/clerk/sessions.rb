@@ -41,8 +41,11 @@ module Clerk
     
     def list(request:, retries: nil, timeout_ms: nil)
       # list - List all sessions
-      # Returns a list of all sessions.
+      # Returns a list of sessions matching the provided criteria.
       # The sessions are returned sorted by creation date, with the newest sessions appearing first.
+      #
+      # Note: This endpoint does not return all sessions that have ever existed. Old and inactive sessions are periodically cleaned up and will not be included in the results.
+      #
       # **Deprecation Notice (2024-01-01):** All parameters were initially considered optional, however
       # moving forward at least one of `client_id` or `user_id` parameters should be provided.
       url, params = @sdk_configuration.get_server_details
@@ -180,7 +183,7 @@ module Clerk
     def create(request: nil, retries: nil, timeout_ms: nil)
       # create - Create a new active session
       # Create a new active session for the provided user ID.
-      # 
+      #
       # **This operation is intended only for use in testing, and is not available for production instances.** If you are looking to generate a user session from the backend,
       # we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend-api/tag/Sign-in-Tokens#operation/CreateSignInToken) resource instead.
       url, params = @sdk_configuration.get_server_details
@@ -191,7 +194,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -486,7 +489,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -781,7 +784,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -935,7 +938,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)

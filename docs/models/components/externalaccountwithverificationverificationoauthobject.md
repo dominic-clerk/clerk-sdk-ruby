@@ -1,5 +1,13 @@
 # ExternalAccountWithVerificationVerificationOauthObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = ExternalAccountWithVerificationVerificationOauthObject::VERIFICATION_OAUTH
+```
+
 
 ## Values
 

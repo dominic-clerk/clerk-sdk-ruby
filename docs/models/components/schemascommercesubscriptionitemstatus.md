@@ -2,6 +2,14 @@
 
 Current status of the subscription item.
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SchemasCommerceSubscriptionItemStatus::ACTIVE
+```
+
 
 ## Values
 
