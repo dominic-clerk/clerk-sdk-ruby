@@ -1,5 +1,13 @@
 # GetApiKeysObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = GetApiKeysObject::API_KEY
+```
+
 
 ## Values
 

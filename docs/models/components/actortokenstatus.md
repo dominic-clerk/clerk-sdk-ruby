@@ -1,5 +1,13 @@
 # ActorTokenStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = ActorTokenStatus::PENDING
+```
+
 
 ## Values
 

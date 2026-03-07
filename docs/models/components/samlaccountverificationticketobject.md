@@ -1,5 +1,13 @@
 # SAMLAccountVerificationTicketObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SAMLAccountVerificationTicketObject::VERIFICATION_TICKET
+```
+
 
 ## Values
 

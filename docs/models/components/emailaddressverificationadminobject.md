@@ -1,5 +1,13 @@
 # EmailAddressVerificationAdminObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EmailAddressVerificationAdminObject::VERIFICATION_ADMIN
+```
+
 
 ## Values
 

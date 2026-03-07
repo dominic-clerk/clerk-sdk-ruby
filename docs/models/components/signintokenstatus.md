@@ -1,5 +1,13 @@
 # SignInTokenStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SignInTokenStatus::PENDING
+```
+
 
 ## Values
 

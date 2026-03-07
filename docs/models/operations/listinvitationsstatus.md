@@ -2,6 +2,14 @@
 
 Filter invitations based on their status
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = ListInvitationsStatus::PENDING
+```
+
 
 ## Values
 

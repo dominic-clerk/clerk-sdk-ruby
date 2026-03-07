@@ -1,5 +1,13 @@
 # EnterpriseAccountVerificationSamlStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EnterpriseAccountVerificationSamlStatus::UNVERIFIED
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # SignUpStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = SignUpStatus::MISSING_REQUIREMENTS
+```
+
 
 ## Values
 

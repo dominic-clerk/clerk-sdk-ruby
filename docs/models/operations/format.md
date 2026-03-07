@@ -2,6 +2,14 @@
 
 The format of the response.
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = Format::TOKEN
+```
+
 
 ## Values
 

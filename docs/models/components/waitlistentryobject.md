@@ -1,5 +1,13 @@
 # WaitlistEntryObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = WaitlistEntryObject::WAITLIST_ENTRY
+```
+
 
 ## Values
 
