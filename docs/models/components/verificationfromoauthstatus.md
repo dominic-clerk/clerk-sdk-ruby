@@ -1,5 +1,13 @@
 # VerificationFromOauthStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationFromOauthStatus::UNVERIFIED
+```
+
 
 ## Values
 

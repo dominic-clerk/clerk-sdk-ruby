@@ -1,5 +1,13 @@
 # EnterpriseAccountVerificationTicketObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EnterpriseAccountVerificationTicketObject::VERIFICATION_TICKET
+```
+
 
 ## Values
 

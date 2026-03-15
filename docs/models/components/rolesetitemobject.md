@@ -1,5 +1,13 @@
 # RoleSetItemObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = RoleSetItemObject::ROLE_SET_ITEM
+```
+
 
 ## Values
 

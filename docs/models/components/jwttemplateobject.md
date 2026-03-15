@@ -1,5 +1,13 @@
 # JWTTemplateObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = JWTTemplateObject::JWT_TEMPLATE
+```
+
 
 ## Values
 

@@ -9,14 +9,12 @@ module Clerk
     module Operations
       # ListInstanceOrganizationInvitationsStatus - Filter organization invitations based on their status
       class ListInstanceOrganizationInvitationsStatus
-
-
         include ::Crystalline::Enum
-
         enums do
           PENDING = new('pending')
           ACCEPTED = new('accepted')
           REVOKED = new('revoked')
+          EXPIRED = new('expired')
         end
       end
     end

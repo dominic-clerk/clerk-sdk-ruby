@@ -20,8 +20,7 @@ require 'dctest_sdk_ruby'
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new
 
-req = Models::Operations::GetPublicInterstitialRequest.new()
-
+req = Models::Operations::GetPublicInterstitialRequest.new
 res = s.miscellaneous.get_public_interstitial(request: req)
 
 if res.status_code == 200

@@ -1,5 +1,13 @@
 # VerificationFromOauthObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationFromOauthObject::VERIFICATION_FROM_OAUTH
+```
+
 
 ## Values
 
