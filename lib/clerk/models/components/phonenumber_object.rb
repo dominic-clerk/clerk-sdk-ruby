@@ -8,12 +8,9 @@ module Clerk
   module Models
     module Components
       # PhoneNumberObject - String representing the object's type. Objects of the same type share the same value.
-      # 
+      #
       class PhoneNumberObject
-
-
         include ::Crystalline::Enum
-
         enums do
           PHONE_NUMBER = new('phone_number')
         end

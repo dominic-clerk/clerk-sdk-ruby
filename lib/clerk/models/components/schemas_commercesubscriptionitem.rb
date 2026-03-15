@@ -13,17 +13,17 @@ module Clerk
         include Crystalline::MetadataFields
 
         # String representing the object's type. Objects of the same type share the same value.
-        field :object, Models::Components::SchemasCommerceSubscriptionItemObjectCommerceSubscriptionItem, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemObjectCommerceSubscriptionItem, false) } }
+        field :object, Models::Components::SchemasCommerceSubscriptionItemObjectCommerceSubscriptionItem, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemObjectCommerceSubscriptionItem, false) } }
         # Unique identifier for the subscription item.
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
         # Unique identifier for the Clerk instance.
         field :instance_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('instance_id'), required: true } }
         # Current status of the subscription item.
-        field :status, Models::Components::SchemasCommerceSubscriptionItemStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemStatus, false) } }
+        field :status, Models::Components::SchemasCommerceSubscriptionItemStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemStatus, false) } }
         # Unique identifier for the associated plan.
         field :plan_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan_id'), required: true } }
         # The billing period for this subscription.
-        field :plan_period, Models::Components::SchemasCommerceSubscriptionItemPlanPeriod, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan_period'), required: true, 'decoder': Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemPlanPeriod, false) } }
+        field :plan_period, Models::Components::SchemasCommerceSubscriptionItemPlanPeriod, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan_period'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::SchemasCommerceSubscriptionItemPlanPeriod, false) } }
         # Unique identifier for the payment source.
         field :payment_source_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('payment_source_id'), required: true } }
         # Unique identifier for the payer.
@@ -53,7 +53,7 @@ module Clerk
         # Information about the next payment.
         field :next_payment, Crystalline::Nilable.new(Models::Components::SchemasCommerceSubscriptionItemNextPayment), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('next_payment') } }
         # The payer associated with this subscription.
-        field :payer, Crystalline::Nilable.new(Models::Components::Payer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('payer') } }
+        field :payer, Crystalline::Nilable.new(Models::Components::SchemasCommerceSubscriptionItemPayer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('payer') } }
         # Unix timestamp (in milliseconds) when the current period started.
         field :period_start, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('period_start') } }
         # Unix timestamp (in milliseconds) when the current period ends.

@@ -13,7 +13,7 @@ module Clerk
         include Crystalline::MetadataFields
 
         # String representing the object's type. Objects of the same type share the same value.
-        field :object, Models::Components::BillingPaymentAttemptObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::BillingPaymentAttemptObject, false) } }
+        field :object, Models::Components::BillingPaymentAttemptObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::BillingPaymentAttemptObject, false) } }
         # Unique identifier for the payment attempt.
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
         # Unique identifier for the associated payment.
@@ -39,7 +39,7 @@ module Clerk
         # Unique identifier for the associated statement.
         field :statement_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('statement_id'), required: true } }
         # The current status of the payment attempt.
-        field :status, Models::Components::BillingPaymentAttemptStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Components::BillingPaymentAttemptStatus, false) } }
+        field :status, Models::Components::BillingPaymentAttemptStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::BillingPaymentAttemptStatus, false) } }
         # Unix timestamp (in milliseconds) when the payment attempt was created.
         field :created_at, ::Integer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('created_at'), required: true } }
         # Unix timestamp (in milliseconds) when the payment attempt was last updated.
@@ -56,9 +56,11 @@ module Clerk
         field :paid_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('paid_at'), required: true } }
         # Unix timestamp (in milliseconds) when the payment failed to be processed.
         field :failed_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('failed_at'), required: true } }
+        # Totals breakdown for this payment attempt.
+        field :totals, Crystalline::Nilable.new(Models::Components::BillingPaymentAttemptTotals), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('totals') } }
 
         
-        def initialize(object:, id:, payment_id:, instance_id:, charge_type:, payee_id:, payee:, payer_id:, payer:, amount:, payment_method_id:, payment_method:, statement_id:, status:, created_at:, updated_at:, subscription_item_id: nil, subscription_item: nil, gateway_external_id: nil, gateway_external_url: nil, paid_at: nil, failed_at: nil)
+        def initialize(object:, id:, payment_id:, instance_id:, charge_type:, payee_id:, payee:, payer_id:, payer:, amount:, payment_method_id:, payment_method:, statement_id:, status:, created_at:, updated_at:, subscription_item_id: nil, subscription_item: nil, gateway_external_id: nil, gateway_external_url: nil, paid_at: nil, failed_at: nil, totals: nil)
           @object = object
           @id = id
           @payment_id = payment_id
@@ -81,6 +83,7 @@ module Clerk
           @gateway_external_url = gateway_external_url
           @paid_at = paid_at
           @failed_at = failed_at
+          @totals = totals
         end
 
         
@@ -108,6 +111,7 @@ module Clerk
           return false unless @gateway_external_url == other.gateway_external_url
           return false unless @paid_at == other.paid_at
           return false unless @failed_at == other.failed_at
+          return false unless @totals == other.totals
           true
         end
       end

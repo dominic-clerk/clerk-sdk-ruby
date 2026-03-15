@@ -13,6 +13,8 @@
 * [upload_logo](#upload_logo) - Upload a logo for the organization
 * [delete_logo](#delete_logo) - Delete the organization's logo.
 * [get_billing_subscription](#get_billing_subscription) - Retrieve an organization's billing subscription
+* [get_billing_credit_balance](#get_billing_credit_balance) - Retrieve an organization's credit balance
+* [adjust_billing_credit_balance](#adjust_billing_credit_balance) - Adjust an organization's credit balance
 
 ## list
 
@@ -29,11 +31,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::ListOrganizationsRequest.new()
-
+req = Models::Operations::ListOrganizationsRequest.new
 res = s.organizations.list(request: req)
 
 unless res.organizations.nil?
@@ -80,11 +81,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.organizations.create(request: req)
 
 unless res.organization.nil?
@@ -122,9 +122,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.get(organization_id: '<id>')
 
 unless res.organization.nil?
@@ -164,10 +163,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.organizations.update(organization_id: '<id>', body: Models::Operations::UpdateOrganizationRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.update(organization_id: '<id>', body: Models::Operations::UpdateOrganizationRequestBody.new)
 
 unless res.organization.nil?
   # handle response
@@ -190,7 +188,7 @@ end
 
 | Error Type                  | Status Code                 | Content Type                |
 | --------------------------- | --------------------------- | --------------------------- |
-| Models::Errors::ClerkErrors | 402, 403, 404, 422          | application/json            |
+| Models::Errors::ClerkErrors | 400, 402, 403, 404, 422     | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
 
 ## delete
@@ -210,9 +208,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.delete(organization_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -253,10 +250,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.organizations.merge_metadata(organization_id: '<id>', body: Models::Operations::MergeOrganizationMetadataRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.merge_metadata(organization_id: '<id>', body: Models::Operations::MergeOrganizationMetadataRequestBody.new)
 
 unless res.organization.nil?
   # handle response
@@ -297,9 +293,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.upload_logo(organization_id: '<id>')
 
 unless res.organization_with_logo.nil?
@@ -338,9 +333,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.delete_logo(organization_id: '<id>')
 
 unless res.organization.nil?
@@ -380,9 +374,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organizations.get_billing_subscription(organization_id: '<id>')
 
 unless res.commerce_subscription.nil?
@@ -408,3 +401,91 @@ end
 | Models::Errors::ClerkErrors | 400, 401, 403, 404, 422     | application/json            |
 | Models::Errors::ClerkErrors | 500                         | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
+
+## get_billing_credit_balance
+
+Retrieves the current credit balance for the specified organization.
+Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="GetOrganizationBillingCreditBalance" method="get" path="/organizations/{organization_id}/billing/credits" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.get_billing_credit_balance(organization_id: '<id>')
+
+unless res.commerce_credit_balance_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `organization_id`                                           | *::String*                                                  | :heavy_check_mark:                                          | The ID of the organization whose credit balance to retrieve |
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::GetOrganizationBillingCreditBalanceResponse)](../../models/operations/getorganizationbillingcreditbalanceresponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| Models::Errors::ClerkErrors | 400, 401, 403, 404, 422     | application/json            |
+| Models::Errors::ClerkErrors | 500                         | application/json            |
+| Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
+
+## adjust_billing_credit_balance
+
+Increases or decreases the credit balance for the specified organization.
+Each adjustment is recorded as a ledger entry. The idempotency_key parameter
+ensures that duplicate requests are safely handled.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="AdjustOrganizationBillingCreditBalance" method="post" path="/organizations/{organization_id}/billing/credits" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.organizations.adjust_billing_credit_balance(organization_id: '<id>', body: Models::Components::AdjustCreditBalanceRequest.new(
+  amount: 245_081,
+  action: Models::Components::Action::INCREASE,
+  idempotency_key: '<value>'
+))
+
+unless res.commerce_credit_ledger_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `organization_id`                                                                                   | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The ID of the organization whose credit balance to adjust                                           |
+| `body`                                                                                              | [Models::Components::AdjustCreditBalanceRequest](../../models/shared/adjustcreditbalancerequest.md) | :heavy_check_mark:                                                                                  | Parameters for the credit balance adjustment                                                        |
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::AdjustOrganizationBillingCreditBalanceResponse)](../../models/operations/adjustorganizationbillingcreditbalanceresponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Models::Errors::ClerkErrors  | 400, 401, 403, 404, 409, 422 | application/json             |
+| Models::Errors::ClerkErrors  | 500                          | application/json             |
+| Errors::APIError             | 4XX, 5XX                     | \*/\*                        |

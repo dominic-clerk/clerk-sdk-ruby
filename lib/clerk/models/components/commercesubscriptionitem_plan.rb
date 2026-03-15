@@ -13,7 +13,7 @@ module Clerk
         include Crystalline::MetadataFields
 
         # String representing the object's type. Objects of the same type share the same value.
-        field :object, Models::Components::CommerceSubscriptionItemObjectCommercePlan, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::CommerceSubscriptionItemObjectCommercePlan, false) } }
+        field :object, Models::Components::CommerceSubscriptionItemObjectCommercePlan, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::CommerceSubscriptionItemObjectCommercePlan, false) } }
         # Unique identifier for the plan.
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
         # The name of the plan.
@@ -21,8 +21,8 @@ module Clerk
 
         field :fee, Models::Components::CommerceMoneyResponse, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('fee'), required: true } }
         # The ID of the product this plan belongs to.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :product_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('product_id'), required: true } }
         # Whether this is the default plan.
         field :is_default, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('is_default'), required: true } }
@@ -50,9 +50,11 @@ module Clerk
         field :features, Crystalline::Nilable.new(Crystalline::Array.new(Models::Components::FeatureResponse)), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('features') } }
         # Number of free trial days for this plan.
         field :free_trial_days, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('free_trial_days'), required: true } }
+        # Per-unit pricing tiers for this plan (for example, seats)
+        field :unit_prices, Crystalline::Nilable.new(Crystalline::Array.new(Models::Components::CommercePlanUnitPrice)), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('unit_prices') } }
 
         
-        def initialize(object:, id:, name:, fee:, product_id:, is_default:, is_recurring:, publicly_visible:, has_base_fee:, for_payer_type:, slug:, free_trial_enabled:, annual_monthly_fee: nil, annual_fee: nil, description: nil, avatar_url: nil, features: nil, free_trial_days: nil)
+        def initialize(object:, id:, name:, fee:, product_id:, is_default:, is_recurring:, publicly_visible:, has_base_fee:, for_payer_type:, slug:, free_trial_enabled:, annual_monthly_fee: nil, annual_fee: nil, description: nil, avatar_url: nil, features: nil, free_trial_days: nil, unit_prices: nil)
           @object = object
           @id = id
           @name = name
@@ -71,6 +73,7 @@ module Clerk
           @avatar_url = avatar_url
           @features = features
           @free_trial_days = free_trial_days
+          @unit_prices = unit_prices
         end
 
         
@@ -94,6 +97,7 @@ module Clerk
           return false unless @avatar_url == other.avatar_url
           return false unless @features == other.features
           return false unless @free_trial_days == other.free_trial_days
+          return false unless @unit_prices == other.unit_prices
           true
         end
       end

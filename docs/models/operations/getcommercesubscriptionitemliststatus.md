@@ -2,6 +2,14 @@
 
 Filter subscription items by status
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = GetCommerceSubscriptionItemListStatus::ACTIVE
+```
+
 
 ## Values
 

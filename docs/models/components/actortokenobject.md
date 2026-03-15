@@ -1,5 +1,13 @@
 # ActorTokenObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = ActorTokenObject::ACTOR_TOKEN
+```
+
 
 ## Values
 

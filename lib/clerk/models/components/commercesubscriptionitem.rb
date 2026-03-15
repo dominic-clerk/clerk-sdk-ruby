@@ -13,15 +13,15 @@ module Clerk
         include Crystalline::MetadataFields
 
         # String representing the object's type. Objects of the same type share the same value.
-        field :object, Models::Components::CommerceSubscriptionItemObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::CommerceSubscriptionItemObject, false) } }
+        field :object, Models::Components::CommerceSubscriptionItemObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::CommerceSubscriptionItemObject, false) } }
         # Unique identifier for the subscription item.
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
         # Unique identifier for the Clerk instance.
         field :instance_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('instance_id'), required: true } }
         # Current status of the subscription item.
-        field :status, Models::Components::CommerceSubscriptionItemStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Components::CommerceSubscriptionItemStatus, false) } }
+        field :status, Models::Components::CommerceSubscriptionItemStatus, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::CommerceSubscriptionItemStatus, false) } }
         # The billing period for this subscription item.
-        field :plan_period, Models::Components::CommerceSubscriptionItemPlanPeriod, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan_period'), required: true, 'decoder': Utils.enum_from_string(Models::Components::CommerceSubscriptionItemPlanPeriod, false) } }
+        field :plan_period, Models::Components::CommerceSubscriptionItemPlanPeriod, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan_period'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::CommerceSubscriptionItemPlanPeriod, false) } }
         # Unique identifier for the payer.
         field :payer_id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('payer_id'), required: true } }
         # Whether this subscription item includes a free trial.
@@ -43,7 +43,7 @@ module Clerk
         # Unix timestamp (in milliseconds) when the current period ends.
         field :period_end, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('period_end'), required: true } }
         # The day the subscription item was prorated from. Only available in some responses.
-        field :proration_date, Crystalline::Nilable.new(::Date), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('proration_date'), 'decoder': Utils.date_from_iso_format(true) } }
+        field :proration_date, Crystalline::Nilable.new(::Date), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('proration_date'), 'decoder': ::Clerk::Utils.date_from_iso_format(true) } }
         # Unix timestamp (in milliseconds) when the subscription item was canceled.
         field :canceled_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('canceled_at'), required: true } }
         # Unix timestamp (in milliseconds) when the subscription item became past due.
@@ -54,13 +54,19 @@ module Clerk
         field :created_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('created_at') } }
         # Unix timestamp (in milliseconds) when the subscription item was last updated.
         field :updated_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('updated_at') } }
+        # Unified credits breakdown for this subscription item.
+        field :credits, Crystalline::Nilable.new(Models::Components::CommerceSubscriptionItemCredits), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('credits') } }
         # The associated plan.
         field :plan, Crystalline::Nilable.new(Models::Components::CommerceSubscriptionItemPlan), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('plan') } }
         # Information about the next payment.
         field :next_payment, Crystalline::Nilable.new(Models::Components::CommerceSubscriptionItemNextPayment), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('next_payment') } }
+        # Seat quantity for seat-based billing.
+        field :seats, Crystalline::Nilable.new(Models::Components::Seats), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('seats') } }
+        # Totals for this subscription item.
+        field :totals, Crystalline::Nilable.new(Models::Components::CommerceSubscriptionItemTotals), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('totals') } }
 
         
-        def initialize(object:, id:, instance_id:, status:, plan_period:, payer_id:, is_free_trial:, period_start:, credit: nil, plan_id: nil, price_id: nil, payment_method: nil, lifetime_paid: nil, payer: nil, period_end: nil, proration_date: nil, canceled_at: nil, past_due_at: nil, ended_at: nil, created_at: nil, updated_at: nil, plan: nil, next_payment: nil)
+        def initialize(object:, id:, instance_id:, status:, plan_period:, payer_id:, is_free_trial:, period_start:, credit: nil, plan_id: nil, price_id: nil, payment_method: nil, lifetime_paid: nil, payer: nil, period_end: nil, proration_date: nil, canceled_at: nil, past_due_at: nil, ended_at: nil, created_at: nil, updated_at: nil, credits: nil, plan: nil, next_payment: nil, seats: nil, totals: nil)
           @object = object
           @id = id
           @instance_id = instance_id
@@ -82,8 +88,11 @@ module Clerk
           @ended_at = ended_at
           @created_at = created_at
           @updated_at = updated_at
+          @credits = credits
           @plan = plan
           @next_payment = next_payment
+          @seats = seats
+          @totals = totals
         end
 
         
@@ -110,8 +119,11 @@ module Clerk
           return false unless @ended_at == other.ended_at
           return false unless @created_at == other.created_at
           return false unless @updated_at == other.updated_at
+          return false unless @credits == other.credits
           return false unless @plan == other.plan
           return false unless @next_payment == other.next_payment
+          return false unless @seats == other.seats
+          return false unless @totals == other.totals
           true
         end
       end

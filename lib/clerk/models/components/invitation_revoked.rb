@@ -13,7 +13,7 @@ module Clerk
         include Crystalline::MetadataFields
 
 
-        field :object, Models::Components::InvitationRevokedObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::InvitationRevokedObject, false) } }
+        field :object, Models::Components::InvitationRevokedObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::InvitationRevokedObject, false) } }
 
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
 
@@ -21,23 +21,23 @@ module Clerk
 
         field :public_metadata, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('public_metadata'), required: true } }
 
-        field :status, Models::Components::StatusResponse, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Components::StatusResponse, false) } }
+        field :status, Models::Components::StatusResponse, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('status'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::StatusResponse, false) } }
         # Unix timestamp of creation.
-        # 
+        #
         field :created_at, ::Integer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('created_at'), required: true } }
         # Unix timestamp of last update.
-        # 
+        #
         field :updated_at, ::Integer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('updated_at'), required: true } }
 
-        field :revoked, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('revoked') } }
-
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('url') } }
+
+        field :revoked, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('revoked') } }
         # Unix timestamp of expiration.
-        # 
+        #
         field :expires_at, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('expires_at') } }
 
         
-        def initialize(object:, id:, email_address:, public_metadata:, status:, created_at:, updated_at:, revoked: nil, url: nil, expires_at: nil)
+        def initialize(object:, id:, email_address:, public_metadata:, status:, created_at:, updated_at:, url: nil, revoked: true, expires_at: nil)
           @object = object
           @id = id
           @email_address = email_address
@@ -45,8 +45,11 @@ module Clerk
           @status = status
           @created_at = created_at
           @updated_at = updated_at
-          @revoked = revoked
           @url = url
+          unless revoked == true
+            raise ArgumentError, 'Invalid value for revoked'
+          end
+          @revoked = true
           @expires_at = expires_at
         end
 
@@ -60,8 +63,8 @@ module Clerk
           return false unless @status == other.status
           return false unless @created_at == other.created_at
           return false unless @updated_at == other.updated_at
-          return false unless @revoked == other.revoked
           return false unless @url == other.url
+          return false unless @revoked == other.revoked
           return false unless @expires_at == other.expires_at
           true
         end

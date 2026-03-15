@@ -2,6 +2,14 @@
 
 When the new price takes effect.
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EffectiveMode::IMMEDIATE
+```
+
 
 ## Values
 
