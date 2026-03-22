@@ -1,5 +1,13 @@
 # VerifyOAuthAccessTokenObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerifyOAuthAccessTokenObject::CLERK_IDP_OAUTH_ACCESS_TOKEN
+```
+
 
 ## Values
 

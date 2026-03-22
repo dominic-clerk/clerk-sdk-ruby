@@ -1,5 +1,13 @@
 # VerificationEmailLinkObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationEmailLinkObject::VERIFICATION_EMAIL_LINK
+```
+
 
 ## Values
 

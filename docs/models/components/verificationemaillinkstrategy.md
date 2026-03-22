@@ -1,5 +1,13 @@
 # VerificationEmailLinkStrategy
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationEmailLinkStrategy::EMAIL_LINK
+```
+
 
 ## Values
 

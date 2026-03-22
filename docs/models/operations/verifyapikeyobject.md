@@ -1,5 +1,13 @@
 # VerifyApiKeyObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerifyApiKeyObject::API_KEY
+```
+
 
 ## Values
 

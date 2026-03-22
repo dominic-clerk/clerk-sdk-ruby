@@ -1,5 +1,13 @@
 # EnterpriseAccountVerificationSamlObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EnterpriseAccountVerificationSamlObject::VERIFICATION_SAML
+```
+
 
 ## Values
 

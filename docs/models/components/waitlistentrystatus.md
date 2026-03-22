@@ -1,5 +1,13 @@
 # WaitlistEntryStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = WaitlistEntryStatus::PENDING
+```
+
 
 ## Values
 

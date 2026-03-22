@@ -2,6 +2,14 @@
 
 The type of the role set ("initial" or "custom")
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = Type::INITIAL
+```
+
 
 ## Values
 

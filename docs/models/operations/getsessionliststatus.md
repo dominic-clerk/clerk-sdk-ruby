@@ -2,6 +2,14 @@
 
 Filter sessions by the provided status
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = GetSessionListStatus::ABANDONED
+```
+
 
 ## Values
 
