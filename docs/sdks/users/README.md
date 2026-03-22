@@ -20,6 +20,8 @@
 * [delete_profile_image](#delete_profile_image) - Delete user profile image
 * [update_metadata](#update_metadata) - Merge and update a user's metadata
 * [get_billing_subscription](#get_billing_subscription) - Retrieve a user's billing subscription
+* [get_billing_credit_balance](#get_billing_credit_balance) - Retrieve a user's credit balance
+* [adjust_billing_credit_balance](#adjust_billing_credit_balance) - Adjust a user's credit balance
 * [get_o_auth_access_token](#get_o_auth_access_token) - Retrieve the OAuth access token of a user
 * [get_organization_memberships](#get_organization_memberships) - Retrieve all memberships for a user
 * [get_organization_invitations](#get_organization_invitations) - Retrieve all invitations for a user
@@ -48,8 +50,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::GetUserListRequest.new(
   last_active_at_before: 1_700_690_400_000,
@@ -58,9 +60,8 @@ req = Models::Operations::GetUserListRequest.new(
   created_at_before: 1_730_160_000_000,
   created_at_after: 1_730_160_000_000,
   last_sign_in_at_before: 1_700_690_400_000,
-  last_sign_in_at_after: 1_700_690_400_000,
+  last_sign_in_at_after: 1_700_690_400_000
 )
-
 res = s.users.list(request: req)
 
 unless res.user_list.nil?
@@ -104,11 +105,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::CreateUserRequest.new()
-
+req = Models::Operations::CreateUserRequest.new
 res = s.users.create(request: req)
 
 unless res.user.nil?
@@ -146,8 +146,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::GetUsersCountRequest.new(
   last_active_at_before: 1_700_690_400_000,
@@ -156,9 +156,8 @@ req = Models::Operations::GetUsersCountRequest.new(
   created_at_before: 1_730_160_000_000,
   created_at_after: 1_730_160_000_000,
   last_sign_in_at_before: 1_700_690_400_000,
-  last_sign_in_at_after: 1_700_690_400_000,
+  last_sign_in_at_after: 1_700_690_400_000
 )
-
 res = s.users.count(request: req)
 
 unless res.total_count.nil?
@@ -196,9 +195,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.get(user_id: '<id>')
 
 unless res.user.nil?
@@ -247,10 +245,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.users.update(user_id: '<id>', body: Models::Operations::UpdateUserRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.users.update(user_id: '<id>', body: Models::Operations::UpdateUserRequestBody.new)
 
 unless res.user.nil?
   # handle response
@@ -273,7 +270,7 @@ end
 
 | Error Type                  | Status Code                 | Content Type                |
 | --------------------------- | --------------------------- | --------------------------- |
-| Models::Errors::ClerkErrors | 400, 401, 404, 422          | application/json            |
+| Models::Errors::ClerkErrors | 400, 401, 404, 409, 422     | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
 
 ## delete
@@ -288,9 +285,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete(user_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -328,9 +324,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.ban(user_id: '<id>')
 
 unless res.user.nil?
@@ -368,9 +363,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.unban(user_id: '<id>')
 
 unless res.user.nil?
@@ -408,17 +402,16 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::UsersBanRequest.new(
   user_ids: [
     '<value 1>',
     '<value 2>',
     '<value 3>',
-  ],
+  ]
 )
-
 res = s.users.bulk_ban(request: req)
 
 unless res.user_list.nil?
@@ -456,17 +449,16 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::UsersUnbanRequest.new(
   user_ids: [
     '<value 1>',
     '<value 2>',
     '<value 3>',
-  ],
+  ]
 )
-
 res = s.users.bulk_unban(request: req)
 
 unless res.user_list.nil?
@@ -505,9 +497,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.lock(user_id: '<id>')
 
 unless res.user.nil?
@@ -545,9 +536,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.unlock(user_id: '<id>')
 
 unless res.user.nil?
@@ -585,10 +575,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.users.set_profile_image(user_id: '<id>', body: Models::Operations::SetUserProfileImageRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.users.set_profile_image(user_id: '<id>', body: Models::Operations::SetUserProfileImageRequestBody.new)
 
 unless res.user.nil?
   # handle response
@@ -626,9 +615,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_profile_image(user_id: '<id>')
 
 unless res.user.nil?
@@ -673,9 +661,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.update_metadata(user_id: '<id>')
 
 unless res.user.nil?
@@ -716,9 +703,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.get_billing_subscription(user_id: '<id>')
 
 unless res.commerce_subscription.nil?
@@ -745,6 +731,94 @@ end
 | Models::Errors::ClerkErrors | 500                         | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
 
+## get_billing_credit_balance
+
+Retrieves the current credit balance for the specified user.
+Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="GetUserBillingCreditBalance" method="get" path="/users/{user_id}/billing/credits" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.users.get_billing_credit_balance(user_id: '<id>')
+
+unless res.commerce_credit_balance_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                           | Type                                                | Required                                            | Description                                         |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `user_id`                                           | *::String*                                          | :heavy_check_mark:                                  | The ID of the user whose credit balance to retrieve |
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::GetUserBillingCreditBalanceResponse)](../../models/operations/getuserbillingcreditbalanceresponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| Models::Errors::ClerkErrors | 400, 401, 403, 404, 422     | application/json            |
+| Models::Errors::ClerkErrors | 500                         | application/json            |
+| Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
+
+## adjust_billing_credit_balance
+
+Increases or decreases the credit balance for the specified user.
+Each adjustment is recorded as a ledger entry. The idempotency_key parameter
+ensures that duplicate requests are safely handled.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="AdjustUserBillingCreditBalance" method="post" path="/users/{user_id}/billing/credits" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.users.adjust_billing_credit_balance(user_id: '<id>', body: Models::Components::AdjustCreditBalanceRequest.new(
+  amount: 562_473,
+  action: Models::Components::Action::DECREASE,
+  idempotency_key: '<value>'
+))
+
+unless res.commerce_credit_ledger_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `user_id`                                                                                           | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The ID of the user whose credit balance to adjust                                                   |
+| `body`                                                                                              | [Models::Components::AdjustCreditBalanceRequest](../../models/shared/adjustcreditbalancerequest.md) | :heavy_check_mark:                                                                                  | Parameters for the credit balance adjustment                                                        |
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::AdjustUserBillingCreditBalanceResponse)](../../models/operations/adjustuserbillingcreditbalanceresponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Models::Errors::ClerkErrors  | 400, 401, 403, 404, 409, 422 | application/json             |
+| Models::Errors::ClerkErrors  | 500                          | application/json             |
+| Errors::APIError             | 4XX, 5XX                     | \*/\*                        |
+
 ## get_o_auth_access_token
 
 Fetch the corresponding OAuth access token for a user that has previously authenticated with a particular OAuth provider.
@@ -758,14 +832,13 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::GetOAuthAccessTokenRequest.new(
   user_id: '<id>',
-  provider: '<value>',
+  provider: '<value>'
 )
-
 res = s.users.get_o_auth_access_token(request: req)
 
 unless res.o_auth_access_token.nil?
@@ -803,9 +876,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.get_organization_memberships(user_id: '<id>', limit: 10, offset: 0)
 
 unless res.organization_memberships.nil?
@@ -845,9 +917,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.get_organization_invitations(user_id: '<id>', limit: 10, offset: 0)
 
 unless res.organization_invitations_with_public_organization_data.nil?
@@ -889,9 +960,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.verify_password(user_id: '<id>')
 
 unless res.object.nil?
@@ -933,9 +1003,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.verify_totp(user_id: '<id>')
 
 unless res.object.nil?
@@ -974,9 +1043,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.disable_mfa(user_id: '<id>')
 
 unless res.object.nil?
@@ -1015,9 +1083,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_backup_codes(user_id: '<id>')
 
 unless res.object.nil?
@@ -1056,9 +1123,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_passkey(user_id: '<id>', passkey_identification_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -1098,9 +1164,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_web3_wallet(user_id: '<id>', web3_wallet_identification_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -1140,9 +1205,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_totp(user_id: '<id>')
 
 unless res.object.nil?
@@ -1181,9 +1245,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.delete_external_account(user_id: '<id>', external_account_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -1223,9 +1286,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.set_password_compromised(user_id: '<id>')
 
 unless res.user.nil?
@@ -1264,9 +1326,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.unset_password_compromised(user_id: '<id>')
 
 unless res.user.nil?
@@ -1304,9 +1365,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.users.get_instance_organization_memberships(limit: 10, offset: 0)
 
 unless res.organization_memberships.nil?

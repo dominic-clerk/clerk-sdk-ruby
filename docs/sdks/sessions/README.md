@@ -14,8 +14,11 @@
 
 ## list
 
-Returns a list of all sessions.
+Returns a list of sessions matching the provided criteria.
 The sessions are returned sorted by creation date, with the newest sessions appearing first.
+
+Note: This endpoint does not return all sessions that have ever existed. Old and inactive sessions are periodically cleaned up and will not be included in the results.
+
 **Deprecation Notice (2024-01-01):** All parameters were initially considered optional, however
 moving forward at least one of `client_id` or `user_id` parameters should be provided.
 
@@ -27,11 +30,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = Models::Operations::GetSessionListRequest.new()
-
+req = Models::Operations::GetSessionListRequest.new
 res = s.sessions.list(request: req)
 
 unless res.session_list.nil?
@@ -72,11 +74,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.sessions.create(request: req)
 
 unless res.session.nil?
@@ -114,9 +115,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.sessions.get(session_id: '<id>')
 
 unless res.session.nil?
@@ -155,9 +155,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.sessions.refresh(session_id: '<id>')
 
 unless res.session_refresh.nil?
@@ -197,9 +196,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.sessions.revoke(session_id: '<id>')
 
 unless res.session.nil?
@@ -237,9 +235,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.sessions.create_token(session_id: '<id>')
 
 unless res.object.nil?
@@ -278,9 +275,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.sessions.create_token_from_template(session_id: '<id>', template_name: '<value>')
 
 unless res.object.nil?

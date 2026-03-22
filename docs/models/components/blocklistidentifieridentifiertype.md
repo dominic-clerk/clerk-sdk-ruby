@@ -1,5 +1,13 @@
 # BlocklistIdentifierIdentifierType
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = BlocklistIdentifierIdentifierType::EMAIL_ADDRESS
+```
+
 
 ## Values
 

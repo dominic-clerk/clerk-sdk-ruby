@@ -38,8 +38,10 @@ module Clerk
     end
 
 
+
+
     
-    def create(request: nil, retries: nil, timeout_ms: nil)
+    def create(request: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create - Create an invitation
       # Creates a new invitation for the given email address and sends the invitation email.
       # Keep in mind that you cannot create an invitation if there is already one for the given email address.
@@ -52,7 +54,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -102,6 +104,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -185,7 +190,7 @@ module Clerk
 
 
     
-    def list(request:, retries: nil, timeout_ms: nil)
+    def list(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list - List all invitations
       # Returns all non-revoked invitations for your application, sorted by creation date
       url, params = @sdk_configuration.get_server_details
@@ -237,6 +242,9 @@ module Clerk
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -305,13 +313,13 @@ module Clerk
 
 
     
-    def bulk_create(request: nil, retries: nil, timeout_ms: nil)
+    def bulk_create(request: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # bulk_create - Create multiple invitations
       # Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the
       # invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any
       # of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please
       # note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.
-      # 
+      #
       # This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -321,7 +329,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -371,6 +379,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -454,7 +465,7 @@ module Clerk
 
 
     
-    def revoke(invitation_id:, retries: nil, timeout_ms: nil)
+    def revoke(invitation_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # revoke - Revokes an invitation
       # Revokes the given invitation.
       # Revoking an invitation will prevent the user from using the invitation link that was sent to them.
@@ -515,6 +526,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -595,5 +609,5 @@ module Clerk
 
       end
     end
-  end
+end
 end
