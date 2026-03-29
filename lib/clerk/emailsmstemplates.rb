@@ -38,13 +38,15 @@ module Clerk
     end
 
 
+
+
     
-    def list(template_type:, paginated: nil, limit: nil, offset: nil, retries: nil, timeout_ms: nil)
+    def list(template_type:, paginated: nil, limit: nil, offset: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # list - List all templates
       # Returns a list of all templates.
       # The templates are returned sorted by position.
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::GetTemplateListRequest.new(
         template_type: template_type,
         paginated: paginated,
@@ -105,6 +107,9 @@ module Clerk
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -188,11 +193,11 @@ module Clerk
 
 
     
-    def get(template_type:, slug:, retries: nil, timeout_ms: nil)
+    def get(template_type:, slug:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a template
       # Returns the details of a template
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::GetTemplateRequest.new(
         template_type: template_type,
         slug: slug
@@ -249,6 +254,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -332,11 +340,11 @@ module Clerk
 
 
     
-    def revert(template_type:, slug:, retries: nil, timeout_ms: nil)
+    def revert(template_type:, slug:, retries: nil, timeout_ms: nil, http_headers: nil)
       # revert - Revert a template
       # Reverts an updated template to its default state
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::RevertTemplateRequest.new(
         template_type: template_type,
         slug: slug
@@ -393,6 +401,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -476,13 +487,13 @@ module Clerk
 
 
     
-    def toggle_template_delivery(template_type:, slug:, body: nil, retries: nil, timeout_ms: nil)
+    def toggle_template_delivery(template_type:, slug:, body: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # toggle_template_delivery - Toggle the delivery by Clerk for a template of a given type and slug
       # Toggles the delivery by Clerk for a template of a given type and slug.
       # If disabled, Clerk will not deliver the resulting email or SMS.
       # The app developer will need to listen to the `email.created` or `sms.created` webhooks in order to handle delivery themselves.
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::ToggleTemplateDeliveryRequest.new(
         template_type: template_type,
         slug: slug,
@@ -501,7 +512,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -551,6 +562,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -631,5 +645,5 @@ module Clerk
 
       end
     end
-  end
+end
 end

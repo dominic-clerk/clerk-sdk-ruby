@@ -2,6 +2,14 @@
 
 Filter plans by payer type
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = GetCommercePlanListPayerType::USER
+```
+
 
 ## Values
 

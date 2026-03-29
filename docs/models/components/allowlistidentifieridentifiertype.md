@@ -1,5 +1,13 @@
 # AllowlistIdentifierIdentifierType
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = AllowlistIdentifierIdentifierType::EMAIL_ADDRESS
+```
+
 
 ## Values
 

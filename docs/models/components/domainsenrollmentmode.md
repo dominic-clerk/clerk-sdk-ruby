@@ -1,5 +1,13 @@
 # DomainsEnrollmentMode
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = DomainsEnrollmentMode::MANUAL_INVITATION
+```
+
 
 ## Values
 

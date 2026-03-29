@@ -38,8 +38,10 @@ module Clerk
     end
 
 
+
+
     
-    def get(id:, retries: nil, timeout_ms: nil)
+    def get(id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get - Retrieve a sign-up by ID
       # Retrieve the details of the sign-up with the given ID
       request = Models::Operations::GetSignUpRequest.new(
@@ -97,6 +99,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -180,7 +185,7 @@ module Clerk
 
 
     
-    def update(id:, body: nil, retries: nil, timeout_ms: nil)
+    def update(id:, body: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update - Update a sign-up
       # Update the sign-up with the given ID
       request = Models::Operations::UpdateSignUpRequest.new(
@@ -200,7 +205,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -250,6 +255,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -330,5 +338,5 @@ module Clerk
 
       end
     end
-  end
+end
 end

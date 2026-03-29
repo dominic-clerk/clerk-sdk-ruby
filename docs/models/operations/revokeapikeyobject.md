@@ -1,5 +1,13 @@
 # RevokeApiKeyObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = RevokeApiKeyObject::API_KEY
+```
+
 
 ## Values
 

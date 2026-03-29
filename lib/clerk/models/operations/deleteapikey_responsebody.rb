@@ -15,15 +15,18 @@ module Clerk
 
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
 
-        field :object, Models::Operations::DeleteApiKeyObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Operations::DeleteApiKeyObject, false) } }
+        field :object, Models::Operations::DeleteApiKeyObject, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Operations::DeleteApiKeyObject, false) } }
 
         field :deleted, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('deleted'), required: true } }
 
         
-        def initialize(id:, object:, deleted:)
+        def initialize(id:, object:, deleted: true)
           @id = id
           @object = object
-          @deleted = deleted
+          unless deleted == true
+            raise ArgumentError, 'Invalid value for deleted'
+          end
+          @deleted = true
         end
 
         

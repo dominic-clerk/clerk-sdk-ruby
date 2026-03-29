@@ -9,6 +9,8 @@ Modify the settings of your instance.
 * [get](#get) - Fetch the current instance
 * [update](#update) - Update instance settings
 * [update_restrictions](#update_restrictions) - Update instance restrictions
+* [get_o_auth_application_settings](#get_o_auth_application_settings) - Get OAuth application settings
+* [update_o_auth_application_settings](#update_o_auth_application_settings) - Update OAuth application settings
 * [change_domain](#change_domain) - Update production instance domain
 * [update_organization_settings](#update_organization_settings) - Update instance organization settings
 * [get_instance_protect](#get_instance_protect) - Get instance protect settings
@@ -26,10 +28,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.instance_settings.get()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.instance_settings.get
 
 unless res.instance.nil?
   # handle response
@@ -59,11 +60,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update(request: req)
 
 if res.status_code == 200
@@ -101,11 +101,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_restrictions(request: req)
 
 unless res.instance_restrictions.nil?
@@ -131,6 +130,79 @@ end
 | Models::Errors::ClerkErrors | 402, 422                    | application/json            |
 | Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
 
+## get_o_auth_application_settings
+
+Retrieves the settings for OAuth applications for the instance (dynamic client registration, JWT access tokens, etc.).
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="GetInstanceOAuthApplicationSettings" method="get" path="/instance/oauth_application_settings" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.instance_settings.get_o_auth_application_settings
+
+unless res.o_auth_application_settings.nil?
+  # handle response
+end
+
+```
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::GetInstanceOAuthApplicationSettingsResponse)](../../models/operations/getinstanceoauthapplicationsettingsresponse.md)**
+
+### Errors
+
+| Error Type       | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| Errors::APIError | 4XX, 5XX         | \*/\*            |
+
+## update_o_auth_application_settings
+
+Updates the OAuth application settings for the instance.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="UpdateInstanceOAuthApplicationSettings" method="patch" path="/instance/oauth_application_settings" -->
+```ruby
+require 'dctest_sdk_ruby'
+
+Models = ::Clerk::Models
+s = ::Clerk::OpenAPIClient.new(
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+
+req = nil
+res = s.instance_settings.update_o_auth_application_settings(request: req)
+
+unless res.o_auth_application_settings.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [Models::Operations::UpdateInstanceOAuthApplicationSettingsRequest](../../models/operations/updateinstanceoauthapplicationsettingsrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+
+### Response
+
+**[Crystalline::Nilable.new(Models::Operations::UpdateInstanceOAuthApplicationSettingsResponse)](../../models/operations/updateinstanceoauthapplicationsettingsresponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| Models::Errors::ClerkErrors | 422                         | application/json            |
+| Errors::APIError            | 4XX, 5XX                    | \*/\*                       |
+
 ## change_domain
 
 Change the domain of a production instance.
@@ -147,11 +219,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.change_domain(request: req)
 
 if res.status_code == 200
@@ -189,11 +260,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_organization_settings(request: req)
 
 unless res.organization_settings.nil?
@@ -231,10 +301,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.instance_settings.get_instance_protect()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.instance_settings.get_instance_protect
 
 unless res.instance_protect.nil?
   # handle response
@@ -264,11 +333,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.instance_settings.update_instance_protect(request: req)
 
 unless res.instance_protect.nil?
