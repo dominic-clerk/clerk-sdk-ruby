@@ -36,6 +36,8 @@ class Clerk::Models::Components::SchemasSAMLConnectionSAMLConnection1
   def allow_idp_initiated=(str_); end
   def disable_additional_identifications(); end
   def disable_additional_identifications=(str_); end
+  def allow_organization_account_linking(); end
+  def allow_organization_account_linking=(str_); end
   def force_authn(); end
   def force_authn=(str_); end
   def created_at(); end

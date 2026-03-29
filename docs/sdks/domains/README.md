@@ -22,10 +22,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.domains.list()
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.domains.list
 
 unless res.domains.nil?
   # handle response
@@ -59,11 +58,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
-req = 
-
+req = nil
 res = s.domains.add(request: req)
 
 unless res.domain.nil?
@@ -102,9 +100,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.domains.delete(domain_id: '<id>')
 
 unless res.deleted_object.nil?
@@ -149,10 +146,9 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
-res = s.domains.update(domain_id: '<id>', body: Models::Operations::UpdateDomainRequestBody.new())
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
+res = s.domains.update(domain_id: '<id>', body: Models::Operations::UpdateDomainRequestBody.new)
 
 unless res.domain.nil?
   # handle response

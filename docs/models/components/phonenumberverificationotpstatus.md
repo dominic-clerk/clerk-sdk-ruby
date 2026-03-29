@@ -1,5 +1,13 @@
 # PhoneNumberVerificationOtpStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = PhoneNumberVerificationOtpStatus::UNVERIFIED
+```
+
 
 ## Values
 

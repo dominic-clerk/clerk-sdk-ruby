@@ -1,5 +1,13 @@
 # VerificationWeb3Object
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationWeb3Object::VERIFICATION_WEB3
+```
+
 
 ## Values
 

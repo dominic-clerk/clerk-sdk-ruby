@@ -1,5 +1,13 @@
 # InvitationStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = InvitationStatus::PENDING
+```
+
 
 ## Values
 

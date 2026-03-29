@@ -1,5 +1,13 @@
 # StatusResponse
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = StatusResponse::REVOKED
+```
+
 
 ## Values
 

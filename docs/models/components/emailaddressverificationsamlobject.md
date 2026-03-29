@@ -1,5 +1,13 @@
 # EmailAddressVerificationSamlObject
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EmailAddressVerificationSamlObject::VERIFICATION_SAML
+```
+
 
 ## Values
 

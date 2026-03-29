@@ -27,12 +27,11 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_memberships.create(organization_id: '<id>', body: Models::Operations::CreateOrganizationMembershipRequestBody.new(
   user_id: '<id>',
-  role: '<value>',
+  role: '<value>'
 ))
 
 unless res.organization_membership.nil?
@@ -71,17 +70,16 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 
 req = Models::Operations::ListOrganizationMembershipsRequest.new(
   organization_id: '<id>',
   last_active_at_before: 1_700_690_400_000,
   last_active_at_after: 1_700_690_400_000,
   created_at_before: 1_730_160_000_000,
-  created_at_after: 1_730_160_000_000,
+  created_at_after: 1_730_160_000_000
 )
-
 res = s.organization_memberships.list(request: req)
 
 unless res.organization_memberships.nil?
@@ -119,11 +117,10 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_memberships.update(organization_id: '<id>', user_id: '<id>', body: Models::Operations::UpdateOrganizationMembershipRequestBody.new(
-  role: '<value>',
+  role: '<value>'
 ))
 
 unless res.organization_membership.nil?
@@ -163,9 +160,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_memberships.delete(organization_id: '<id>', user_id: '<id>')
 
 unless res.organization_membership.nil?
@@ -206,9 +202,8 @@ require 'dctest_sdk_ruby'
 
 Models = ::Clerk::Models
 s = ::Clerk::OpenAPIClient.new(
-      bearer_auth: '<YOUR_BEARER_TOKEN_HERE>',
-    )
-
+  bearer_auth: '<YOUR_BEARER_TOKEN_HERE>'
+)
 res = s.organization_memberships.update_metadata(organization_id: '<id>', user_id: '<id>')
 
 unless res.organization_membership.nil?

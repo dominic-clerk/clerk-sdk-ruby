@@ -38,8 +38,10 @@ module Clerk
     end
 
 
+
+
     
-    def list(request:, retries: nil, timeout_ms: nil)
+    def list(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list - List all waitlist entries
       # Retrieve a list of waitlist entries for the instance.
       # Entries are ordered by creation date in descending order by default.
@@ -93,6 +95,9 @@ module Clerk
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -161,7 +166,7 @@ module Clerk
 
 
     
-    def create(request: nil, retries: nil, timeout_ms: nil)
+    def create(request: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create - Create a waitlist entry
       # Creates a new waitlist entry for the given email address.
       # If the email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned.
@@ -173,7 +178,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -223,6 +228,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -306,15 +314,15 @@ module Clerk
 
 
     
-    def bulk_create(request: nil, retries: nil, timeout_ms: nil)
+    def bulk_create(request: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # bulk_create - Create multiple waitlist entries
       # Creates multiple waitlist entries for the provided email addresses.
       # You can choose whether to send confirmation emails by setting the `notify` parameter to `true` or `false` for each entry.
       # If the `notify` parameter is omitted, it defaults to `true`.
-      # 
+      #
       # If an email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned.
       # Duplicate email addresses within the same request are not allowed.
-      # 
+      #
       # This endpoint is limited to a maximum of 50 entries per API call. If you need to add more entries, please make multiple requests.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -324,7 +332,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, true, :request, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -374,6 +382,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -457,7 +468,7 @@ module Clerk
 
 
     
-    def delete(waitlist_entry_id:, retries: nil, timeout_ms: nil)
+    def delete(waitlist_entry_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # delete - Delete a pending waitlist entry
       # Delete a pending waitlist entry.
       request = Models::Operations::DeleteWaitlistEntryRequest.new(
@@ -515,6 +526,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -598,7 +612,7 @@ module Clerk
 
 
     
-    def invite(waitlist_entry_id:, body: nil, retries: nil, timeout_ms: nil)
+    def invite(waitlist_entry_id:, body: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # invite - Invite a waitlist entry
       # Send an invite to the email address in a waitlist entry.
       request = Models::Operations::InviteWaitlistEntryRequest.new(
@@ -618,7 +632,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -668,6 +682,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -751,7 +768,7 @@ module Clerk
 
 
     
-    def reject(waitlist_entry_id:, retries: nil, timeout_ms: nil)
+    def reject(waitlist_entry_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # reject - Reject a waitlist entry
       # Reject a waitlist entry.
       request = Models::Operations::RejectWaitlistEntryRequest.new(
@@ -809,6 +826,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -889,5 +909,5 @@ module Clerk
 
       end
     end
-  end
+end
 end

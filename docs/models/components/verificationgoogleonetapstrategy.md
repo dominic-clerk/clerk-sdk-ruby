@@ -1,5 +1,13 @@
 # VerificationGoogleOneTapStrategy
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = VerificationGoogleOneTapStrategy::GOOGLE_ONE_TAP
+```
+
 
 ## Values
 

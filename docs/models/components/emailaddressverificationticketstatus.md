@@ -1,5 +1,13 @@
 # EmailAddressVerificationTicketStatus
 
+## Example Usage
+
+```ruby
+require "dctest-sdk-ruby"
+
+value = EmailAddressVerificationTicketStatus::UNVERIFIED
+```
+
 
 ## Values
 

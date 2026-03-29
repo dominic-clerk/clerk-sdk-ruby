@@ -38,12 +38,14 @@ module Clerk
     end
 
 
+
+
     
-    def upsert(template_type:, slug:, body: nil, retries: nil, timeout_ms: nil)
+    def upsert(template_type:, slug:, body: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # upsert - Update a template for a given type and slug
       # Updates the existing template of the given type and slug
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::UpsertTemplateRequest.new(
         template_type: template_type,
         slug: slug,
@@ -62,7 +64,7 @@ module Clerk
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(data)
@@ -112,6 +114,9 @@ module Clerk
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -192,5 +197,5 @@ module Clerk
 
       end
     end
-  end
+end
 end

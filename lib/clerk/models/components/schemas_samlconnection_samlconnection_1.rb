@@ -13,12 +13,12 @@ module Clerk
         include Crystalline::MetadataFields
 
 
-        field :object, Models::Components::SchemasSAMLConnectionObject1, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': Utils.enum_from_string(Models::Components::SchemasSAMLConnectionObject1, false) } }
+        field :object, Models::Components::SchemasSAMLConnectionObject1, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('object'), required: true, 'decoder': ::Clerk::Utils.enum_from_string(Models::Components::SchemasSAMLConnectionObject1, false) } }
 
         field :id, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('id'), required: true } }
 
         field :name, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('name'), required: true } }
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :domain, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('domain'), required: true } }
 
         field :acs_url, ::String, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('acs_url'), required: true } }
@@ -40,13 +40,15 @@ module Clerk
         field :allow_idp_initiated, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('allow_idp_initiated'), required: true } }
 
         field :disable_additional_identifications, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('disable_additional_identifications'), required: true } }
+
+        field :allow_organization_account_linking, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('allow_organization_account_linking'), required: true } }
         # Enable or deactivate ForceAuthn
         field :force_authn, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('force_authn'), required: true } }
         # Unix timestamp of creation.
-        # 
+        #
         field :created_at, ::Integer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('created_at'), required: true } }
         # Unix timestamp of last update.
-        # 
+        #
         field :updated_at, ::Integer, { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('updated_at'), required: true } }
 
         field :domains, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('domains') } }
@@ -68,7 +70,7 @@ module Clerk
         field :enterprise_connection_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Clerk::Utils.field_name('enterprise_connection_id') } }
 
         
-        def initialize(object:, id:, name:, domain:, acs_url:, sp_entity_id:, sp_metadata_url:, active:, provider:, user_count:, sync_user_attributes:, allow_subdomains:, allow_idp_initiated:, disable_additional_identifications:, force_authn:, created_at:, updated_at:, domains: nil, idp_entity_id: nil, idp_sso_url: nil, idp_certificate: nil, attribute_mapping: nil, idp_metadata_url: nil, idp_metadata: nil, organization_id: nil, enterprise_connection_id: nil)
+        def initialize(object:, id:, name:, domain:, acs_url:, sp_entity_id:, sp_metadata_url:, active:, provider:, user_count:, sync_user_attributes:, allow_subdomains:, allow_idp_initiated:, disable_additional_identifications:, allow_organization_account_linking:, force_authn:, created_at:, updated_at:, domains: nil, idp_entity_id: nil, idp_sso_url: nil, idp_certificate: nil, attribute_mapping: nil, idp_metadata_url: nil, idp_metadata: nil, organization_id: nil, enterprise_connection_id: nil)
           @object = object
           @id = id
           @name = name
@@ -83,6 +85,7 @@ module Clerk
           @allow_subdomains = allow_subdomains
           @allow_idp_initiated = allow_idp_initiated
           @disable_additional_identifications = disable_additional_identifications
+          @allow_organization_account_linking = allow_organization_account_linking
           @force_authn = force_authn
           @created_at = created_at
           @updated_at = updated_at
@@ -114,6 +117,7 @@ module Clerk
           return false unless @allow_subdomains == other.allow_subdomains
           return false unless @allow_idp_initiated == other.allow_idp_initiated
           return false unless @disable_additional_identifications == other.disable_additional_identifications
+          return false unless @allow_organization_account_linking == other.allow_organization_account_linking
           return false unless @force_authn == other.force_authn
           return false unless @created_at == other.created_at
           return false unless @updated_at == other.updated_at
